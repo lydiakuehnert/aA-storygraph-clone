@@ -92,24 +92,18 @@ export const getLikedBooksThunk = () => async dispatch => {
 
 
 export const createBookThunk = (book, user) => async dispatch => {
-    try {
-        const res = await fetch('/api/books/upload', {
-            method: 'POST',
-            // headers: { 'Content-Type': 'application/json' },
-            // body: JSON.stringify(book)
-            body: book
-        })
+    const res = await fetch('/api/books/add', {
+        method: 'POST',
+        // headers: { 'Content-Type': 'application/json' },
+        // body: JSON.stringify(book)
+        body: book
+    })
 
-        if (res.ok) {
-            if (!user) throw new Error('Please log in to create a book')
-            const newBook = await res.json();
-            dispatch(createBookAction(newBook))
-            // console.log(newBook)
-            return newBook;
-        }
-    } catch (e) {
-        const data = await e.json()
-        return data;
+    if (res.ok) {
+        if (!user) throw new Error('Please log in to create a book')
+        const newBook = await res.json();
+        dispatch(createBookAction(newBook))
+        return newBook;
     }
 }
 
