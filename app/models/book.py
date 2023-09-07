@@ -42,7 +42,7 @@ class Book(db.Model, UserMixin):
             "picture": self.picture,
             "user": self.user.to_dict_no(),
             "tags": [tag.to_dict() for tag in self.tags],
-            "avgRating": self.avgrating
+            "avgRating": self.avgrating()
        }
     
     def to_dict_no(self):
@@ -59,5 +59,7 @@ class Book(db.Model, UserMixin):
     
     def avgrating(self):
         li = [review.to_dict()['stars'] for review in self.reviews]
-        avg_rating = sum(li) / len(li)
-        return avg_rating
+        if len(li) > 0: 
+            avg_rating = sum(li) / len(li)
+            return avg_rating
+        return len(li)
