@@ -118,22 +118,17 @@ export const deleteBookThunk = (bookId) => async dispatch => {
 }
 
 export const editBookThunk = (book, bookId) => async dispatch => {
-    try {
-        const res = await fetch(`/api/books/${bookId}`, {
-            method: 'PUT',
-            // headers: { 'Content-Type': 'application/json' },
-            // body: JSON.stringify(book)
-            body: book
-        })
+    const res = await fetch(`/api/books/${bookId}`, {
+        method: 'PUT',
+        // headers: { 'Content-Type': 'application/json' },
+        // body: JSON.stringify(book)
+        body: book
+    })
 
-        if (res.ok) {
-            const book = await res.json();
-            dispatch(editBookAction(book))
-            return book;
-        }
-    } catch (e) {
-        const error = await e.json()
-        return error;
+    if (res.ok) {
+        const book = await res.json();
+        dispatch(editBookAction(book))
+        return book;
     }
 }
 

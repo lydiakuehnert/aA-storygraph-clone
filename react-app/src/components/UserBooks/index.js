@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBooksThunk } from "../../store/books";
 import BookCard from "../BookCard";
 // import BookDelete from "../BookDelete";
-// import BookEdit from "../BookEdit";
+import BookEdit from "../BookEdit";
 import OpenModalButton from "../OpenModalButton";
 import './UserBooks.css'
 
@@ -32,13 +32,12 @@ export default function UserBooks() {
                                         buttonText=<i className="fa-solid fa-trash fa-xs"></i>
                                         buttonText2='&nbsp;&nbsp;Delete'
                                         modalComponent={<BookDelete bookId={book.id} />}
-                                    />}
+                                    />} */}
                                     {user && user.id === book.user.id && <OpenModalButton
                                         buttonClass='button-white'
-                                        buttonText=<i className=" fa-solid fa-pen-nib fa-xs"></i>
-                                        buttonText2='&nbsp;&nbsp;Edit'
+                                        buttonText='Edit your book'
                                         modalComponent={<BookEdit bookId={book.id} />}
-                                    />} */}
+                                    />}
                                 </div>
                             </div>
                         </>

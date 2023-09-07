@@ -54,11 +54,9 @@ export default function AddBook() {
         formData.append("picture", picture)
 
 
-        // const book = { title, user_id, picture }
         try {
             setImageLoading(true);
             const newBook = await dispatch(createBookThunk(formData, user))
-            // const newBook = await dispatch(createBookThunk(book, user))
             history.push(`/books/${newBook?.newBook.id}`)
         } catch (error) {
             console.error('Error creating book:', error)
@@ -67,17 +65,17 @@ export default function AddBook() {
 
 
     return (
-        <div classTitle='index'>
-            <div classTitle='book-add-div'>
+        <div className='index'>
+            <div className='book-add-div'>
                 <h1>Add a Book</h1>
-                <form classTitle='add-form' enctype="multipart/form-data" onSubmit={handleSubmit}>
-                    <div classTitle='add-div'>
+                <form className='add-form' enctype="multipart/form-data" onSubmit={handleSubmit}>
+                    <div className='add-div'>
                         <section id='add-form-data'>
 
-                            <label classTitle='add-form-elements' >
+                            <label className='add-form-elements' >
                                 Title:
                                 <input
-                                    classTitle='book-inputs'
+                                    className='book-inputs'
                                     type='text'
                                     placeholder='Book Title'
                                     value={title}
@@ -88,10 +86,10 @@ export default function AddBook() {
 
                             {errors.title && <p classTitle='add-validators'>{errors.title}</p>}
 
-                            <label classTitle='add-form-elements' >
+                            <label className='add-form-elements' >
                                 Author:
                                 <input
-                                    classTitle='book-inputs'
+                                    className='book-inputs'
                                     type='text'
                                     placeholder='Book Author'
                                     value={author}
@@ -100,36 +98,36 @@ export default function AddBook() {
                                 />
                             </label>
 
-                            {errors.author && <p classTitle='add-validators'>{errors.author}</p>}
+                            {errors.author && <p className='add-validators'>{errors.author}</p>}
                             
-                            <label classTitle='add-form-elements' >
+                            <label className='add-form-elements' >
                                 Number of Pages:
                                 <input
-                                    classTitle='book-inputs'
+                                    className='book-inputs'
                                     type='number'
                                     value={pageNum}
                                     onChange={(e) => setPageNum(e.target.value)}
                                 />
                             </label>
 
-                            {errors.pageNum && <p classTitle='add-validators'>{errors.pageNum}</p>}
+                            {errors.pageNum && <p className='add-validators'>{errors.pageNum}</p>}
                             
-                            <label classTitle='add-form-elements' >
+                            <label className='add-form-elements' >
                                 Year Published:
                                 <input
-                                    classTitle='book-inputs'
+                                    className='book-inputs'
                                     type='number'
                                     value={yrPub}
                                     onChange={(e) => setYrPub(e.target.value)}
                                 />
                             </label>
 
-                            {errors.yrPub && <p classTitle='add-validators'>{errors.yrPub}</p>}
+                            {errors.yrPub && <p className='add-validators'>{errors.yrPub}</p>}
 
-                            <label classTitle='add-form-elements' >
+                            <label className='add-form-elements' >
                                 Genre:
                                 <input
-                                    classTitle='book-inputs'
+                                    className='book-inputs'
                                     type='text'
                                     placeholder='Book Genre'
                                     value={genre}
@@ -138,21 +136,21 @@ export default function AddBook() {
                                 />
                             </label>
 
-                            {errors.genre && <p classTitle='add-validators'>{errors.genre}</p>}
+                            {errors.genre && <p className='add-validators'>{errors.genre}</p>}
 
-                            <label classTitle='add-form-elements' >
+                            <label className='add-form-elements' >
                                 Book Cover:
                                 <input
-                                    classTitle='book-inputs'
+                                    className='book-inputs'
                                     type='file'
                                     accept='.pdf, .png, .jpg, .jpeg, .gif'
                                     onChange={(e) => setPicture(e.target.files[0])}
                                 />
                             </label>
 
-                            {errors.picture && <p classTitle='add-validators'>{errors.picture}</p>}
+                            {errors.picture && <p className='add-validators'>{errors.picture}</p>}
 
-                            <label classTitle='add-form-elements'>
+                            <label className='add-form-elements'>
                                 Description:
                                 <textarea
                                     type="text"
@@ -163,6 +161,8 @@ export default function AddBook() {
                                     cols="35"
                                 />
                             </label>
+
+                            {errors.description && <p className='add-validators'>{errors.description}</p>}
 
                         </section>
                         <button id='add-book-btn' type="submit">Create Book</button>
