@@ -34,7 +34,7 @@ function Navigation({ isLoaded }){
 									<NavLink className='readBooksClass' exact to={`/read`}>Read Books</NavLink>
 								</li> */}
 								<li className="add-book-button">
-									<NavLink className='navlink-link' exact to={`/new`}>Add a Book</NavLink>
+									<NavLink className='navlink-link' exact to={`/books/new`}>Add a Book</NavLink>
 								</li>
 								<li className="user-books-button">
 									<NavLink className='navlink-link' exact to={`/books/user`}>Your Books</NavLink>

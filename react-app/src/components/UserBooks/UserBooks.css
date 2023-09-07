@@ -1,0 +1,22 @@
+.all-user-books {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 1240px;
+    margin: auto;
+    justify-content: center;
+}
+
+.user-book-button-container {
+    flex-direction: column;
+}
+
+.user-book-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.user-book-buttons button {
+    width: 80px
+}

@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import AllBooks from "./components/AllBooks";
 import OneBook from "./components/OneBook";
+import UserBooks from "./components/UserBooks";
+import AddBook from "./components/AddBook";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +34,12 @@ function App() {
             </Route>
             <Route exact path="/books">
               <AllBooks />
+            </Route>
+            <Route exact path='/books/user'>
+              <UserBooks />
+            </Route>
+            <Route exact path='/books/new'>
+              <AddBook />
             </Route>
             <Route exact path="/books/:bookId">
               <OneBook />
