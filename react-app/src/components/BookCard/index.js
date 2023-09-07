@@ -17,13 +17,18 @@ export default function BookCard({ book }) {
                 </NavLink>
 
             </div>
-            <NavLink className="book-card-link" exact to={`/books/${book.id}`}>
 
-                <div className="book-details">
-                    <p className="book-title">{book.title}</p>
-                    <p className="author-name">{book.author}</p>
+            <div className="book-details">
+                <NavLink className="book-card-link" exact to={`/books/${book.id}`}>
+                    <h2 className="book-title">{book.title}</h2>
+                </NavLink>
+                <h3 className="author-name">{book.author}</h3>
+                <div>
+                    <p>{book.pageNum} pages</p>
+                    <p>Published: {book.yrPublished}</p>
                 </div>
-            </NavLink>
+                <p>{book.genre}</p>
+            </div>
         </div>
     )
 }

@@ -26,7 +26,7 @@ function LoginFormModal() {
   const loginDemo = (e) => {
     e.preventDefault();
 
-    dispatch(login('demo@aa.io', 'password')).then(closeModal()).then(history.push('/'))
+    dispatch(login('demo@aa.io', 'password')).then(closeModal()).then(history.push('/books'))
   }
 
   return (
