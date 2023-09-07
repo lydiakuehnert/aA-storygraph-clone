@@ -94,3 +94,16 @@ def edit_book(id):
     else:
         print(form.errors)
         return {"errors": form.errors}
+
+
+@books.route('/<int:id>', methods=['DELETE'])
+def delete_book(id):
+    get_book = Book.query.get(id)
+
+    pic_deleted = remove_file_from_s3(get_book.picture)
+    if pic_deleted is True:
+        db.session.delete(get_book)
+        db.session.commit()
+        return {"Success": "successfully deleted"}
+    else:
+        return "<h1> Error Occurred in Deleting Book<h1>"
