@@ -1,7 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
 .profile-dropdown {
   position: absolute;
 }
 
 .hidden {
   display: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.profile-dropdown {
+  position: absolute;
+  z-index: 1000;
+  border: 1px solid gainsboro;
+}
+
+.profile-dropdown li {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.profile-dropdown a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.clicky {
+  background-color: gainsboro;
+}
+
+.clicky:hover {
+  background-color: gray;
+}
+
+#profile-link {
+  border-bottom: 1px solid white;
+}
+
+#logo {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+  font-family: 'Bungee', cursive;
+  margin-left: .5em;
+}
+
+.fa-book-open-reader {
+  color: white;
+}
+
+.logo-li {
+  margin-right: auto;
+  padding-left: 5px;
+}
+
+#noDeco {
+  text-decoration: none;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 85%;
+  list-style-type: none;
+  border-bottom: 1px solid rgb(172, 168, 168);
+  background-color: black;
+  margin: auto;
+}
+
+.nav-background {
+  background-color: black;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-bar>li {
+  padding-right: 1em;
+}
+
+.li-nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.create-spot-link {
+  text-decoration: none;
+  color: rgb(84, 84, 212);
+}
+
+.menu-div {
+  position: relative;
+}
+
+.menu-div ul {
+  position: absolute;
+  list-style-type: none;
+  top: 35px;
+  right: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  width: 150px;
+  align-items: center;
+  background-color: white;
+  text-align: center;
+}
+
+.manage-li {
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  padding: 3px 0;
+  margin: 4px 0;
+}
+
+.manage-link {
+  text-decoration: none;
+  color: black;
+}
+
+.logout-button {
+  background-color: rgb(79, 78, 78);
+  border: 2px solid black;
+  color: white;
+  border-radius: 45%;
+  padding: 10px 17px;
+  cursor: pointer;
+}
+
+.searchbar-li {
+  position: absolute;
+  left: 40%;
+}
+
+.search-input {
+  padding: 6px;
+  border-radius: 5px;
+  border: 0;
+}
+
+/* .search-button {
+  background-image: ;
+} */
+
+.menu-button {
+  cursor: pointer;
+}
+
+.profile-menu {
+  height: 33px;
+  width: 33px;
+  object-fit: cover;
+
+  border-radius: 45%;
+}
+
+.fa-angle-down {
+  font-size: small;
+  color: gray;
+  margin-left: 3px;
+  vertical-align: super;
+  cursor: pointer;
+}
+
+.menu-button:hover .fa-angle-down {
+  color: white;
+}
+
+.navlink-link {
+  text-decoration: none;
+  color: gray;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navlink-link:hover {
+  color: white;
+  text-decoration: underline;
 }
