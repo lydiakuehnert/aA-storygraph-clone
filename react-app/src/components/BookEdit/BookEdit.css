@@ -1,0 +1,45 @@
+
+#image-btn {
+    display: none
+}
+
+.song-edit-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 500px
+}
+
+.button-center {
+    margin-left: 40%;
+    margin-top: .5em;
+}
+
+#edit-song-data {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+
+}
+
+.song-edit-inputs {
+    margin: 10px 0 10px;
+    /* display: flex; */
+
+}
+
+.song-edit-errors {
+    color: crimson;
+    margin: 0 0 0 100px;
+}
+
+.edit-bars {
+    margin-left: 5px;
+}
+
+#edit-song-btn {
+    display: flex;
+    justify-content: center;
+    margin: 10px 40px;
+}
