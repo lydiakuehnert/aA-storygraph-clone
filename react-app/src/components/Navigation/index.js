@@ -52,14 +52,12 @@ function Navigation({ isLoaded }){
 						<li className="login-button">
 							<OpenModalButton
 								buttonText="Sign In"
-								buttonClass='button-black'
 								modalComponent={<LoginFormModal />}
 							/>
 						</li>
 						<li className="signup-button">
 							<OpenModalButton
 								buttonText="Create Account"
-								buttonClass='button-orange'
 								modalComponent={<SignupFormModal />}
 							/>
 						</li>

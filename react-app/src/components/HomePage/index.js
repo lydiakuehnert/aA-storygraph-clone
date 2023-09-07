@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import './HomePage.css';
 
 
 export default function HomePage() {
