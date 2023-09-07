@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -10,6 +10,8 @@ function LoginFormPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory();
+
 
   if (sessionUser) return <Redirect to="/books" />;
 
@@ -21,13 +23,19 @@ function LoginFormPage() {
     }
   };
 
+  const loginDemo = (e) => {
+    e.preventDefault();
+
+    dispatch(login('demo@aa.io', 'password')).then(history.push('/books'))
+  }
+
   return (
     <>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <li className='errors' key={idx}>{error}</li>
           ))}
         </ul>
         <label>
@@ -49,6 +57,7 @@ function LoginFormPage() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button id="login-demo" className='demo-button' onClick={loginDemo} >Demo User</button>
       </form>
     </>
   );
