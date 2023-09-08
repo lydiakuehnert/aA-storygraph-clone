@@ -16,7 +16,7 @@ export default function AllBooks() {
 
     return (
         <>
-            <div className="all-books index">
+            <div className="all-books">
                 {books.length > 0 && books.map(book => (
                     <BookCard key={book.id} book={book} />
                 ))}
