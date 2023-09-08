@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getBookThunk } from "../../store/books";
+import OpenModalButton from "../OpenModalButton";
+import ReviewPost from "../ReviewPost";
 import BookReviews from "../BookReviews";
 import "./OneBook.css"
 
@@ -40,8 +42,13 @@ export default function OneBook() {
                     <h3>{book.genre}</h3>
                     <p>{book.description}</p>
                 </div>
+                <div>
+                    {user && (user.id !== book.user.id) ? <OpenModalButton
+                        buttonText="Add a review"
+                        modalComponent={<ReviewPost book={book} /> } /> : <></>}
+                </div>
             </div>
-            <h2>Community Reviews <i className="fa-solid fa-star"></i> {book.avgRating}</h2>
+            <h2>Community Reviews <i className="fa-solid fa-star"></i> {book.avgRating.toFixed(1)}</h2>
             <div className="review-detail-box">
                 <BookReviews book={book} />
             </div>

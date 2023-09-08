@@ -1,21 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { editReviewThunk } from "../../store/reviews";
-import "./ReviewEdit.css";
+import { createReviewThunk } from "../../store/reviews";
+import "./ReviewPost.css";
 import { getBookThunk } from "../../store/books";
 import { useState } from "react";
 
-export default function ReviewEdit({ review, bookId }) {
+export default function ReviewPost({ book }) {
     const dispatch = useDispatch();
     const { closeModal } = useModal();
-    const [input, setInput] = useState(review.review);
-    const [rating, setRating] = useState(review.stars);
+    const [input, setInput] = useState("");
+    const [rating, setRating] = useState("");
     const [activeRating, setActiveRating] = useState(rating);
     const [errors, setErrors] = useState({})
     const sessionUser = useSelector(state => state.session.user);
 
+    const bookId = book.id;
 
-    const handleEdit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         let validationErrors = {}
 
@@ -27,14 +28,11 @@ export default function ReviewEdit({ review, bookId }) {
         }
 
         const payload = {
-            id: review.id,
             review: input,
-            stars: rating,
-            book_id: bookId,
-            user_id: sessionUser.id
+            stars: rating
         }
         try {
-            await dispatch(editReviewThunk(payload))
+            await dispatch(createReviewThunk({bookId, payload}))
             await dispatch(getBookThunk(bookId))
             setErrors({})
             closeModal()
@@ -44,15 +42,9 @@ export default function ReviewEdit({ review, bookId }) {
     }
 
     return (
-        <div className="edit-modal">
-            <h2>Edit Review</h2>
+        <div className="review-modal">
+            <h2>Did you enjoy this book?</h2>
             {Object.values(errors).length > 0 && <p className="errors">{errors.review}</p>}
-            <textarea
-                type="text"
-                placeholder="Update your review"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-            />
             <div className="rating-input">
                 <div onMouseEnter={() => setActiveRating(1)}
                     onMouseLeave={() => setActiveRating(rating)}
@@ -79,10 +71,14 @@ export default function ReviewEdit({ review, bookId }) {
                     onClick={() => setRating(5)}>
                     {activeRating > 4 ? <i className="fa-solid fa-star"></i> : <i className="fa-regular fa-star"></i>}
                 </div>
-                <h5>Stars</h5>
             </div>
-            <button onClick={handleEdit} disabled={input.length < 1 || rating < 1} className="edit-button">Edit Review</button>
-            <button onClick={closeModal} className="cancel-button">Cancel</button>
+            <textarea
+                type="text"
+                placeholder="Write your review here..."
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+            />
+            <button onClick={handleSubmit} disabled={input.length < 1 || rating < 1} className="submit-button">Submit your review</button>
         </div>
     )
 }

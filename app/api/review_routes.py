@@ -22,10 +22,11 @@ def update_review(id):
 
     form["csrf_token"].data = request.cookies["csrf_token"]
 
+
     if form.validate_on_submit():
         review_to_update = Review.query.get(id)
         review_to_update.review = form.data['review']
-        review_to_update.date = datetime.utcnow()
+        review_to_update.stars = form.data['stars']
         db.session.commit()
         return review_to_update.to_dict()
 
@@ -42,3 +43,29 @@ def delete_review(id):
     db.session.delete(review_to_delete)
     db.session.commit()
     return {"Success": "successfully deleted"}
+
+
+@reviews.route('/<int:bookId>/new', methods=['POST'])
+@login_required
+def create_review(bookId):
+    form = ReviewForm()
+
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+
+        new_review = Review(
+            review=form.data['review'],
+            stars=form.data['stars'],
+            book_id = bookId,
+            user_id=current_user.id,
+            date=datetime.utcnow()
+        ) 
+
+        db.session.add(new_review)
+        db.session.commit()
+        return new_review.to_dict()
+
+    else:
+        print(form.errors)
+        return {"errors": form.errors}

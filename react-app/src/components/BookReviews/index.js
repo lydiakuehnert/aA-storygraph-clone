@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getReviewsThunk } from "../../store/reviews";
-// import ReviewPost from "../ReviewPost";
 import OpenModalButton from "../OpenModalButton";
 import ReviewDelete from "../ReviewDelete";
 import ReviewEdit from "../ReviewEdit";
@@ -24,7 +23,6 @@ export default function BookReviews({ book }) {
 
     return (
         <div className="book-reviews">
-            {/* {sessionUser && (sessionUser.id !== book.user.id) ? <ReviewPost book={book} /> : <></>} */}
             {sessionUser && !reviews.length && sessionUser.id !== book.user.id &&
                 <div id="noReview"><h4>Be the first to post a review!</h4></div>}
             {reviews.length > 0 && reviews.slice().reverse().map(review => {
