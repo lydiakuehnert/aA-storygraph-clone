@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getBookThunk } from "../../store/books";
-// import BookReviews from "../BookReviews";
+import BookReviews from "../BookReviews";
 import "./OneBook.css"
 
 
@@ -41,8 +41,9 @@ export default function OneBook() {
                     <p>{book.description}</p>
                 </div>
             </div>
+            <h2>Community Reviews <i className="fa-solid fa-star"></i> {book.avgRating}</h2>
             <div className="review-detail-box">
-                {/* <BookReviews book={book} /> */}
+                <BookReviews book={book} />
             </div>
         </div>
     )

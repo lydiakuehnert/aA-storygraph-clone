@@ -1,8 +1,8 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import User, Review, Book, db
-from ..forms.book_form import BookForm
-from ..forms.book_edit_form import BookEditForm
+from ..forms import BookForm
+from ..forms import BookEditForm
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 
