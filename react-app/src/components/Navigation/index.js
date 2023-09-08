@@ -25,20 +25,23 @@ function Navigation({ isLoaded }){
 			<li className='searchbar-li'>
 				{/* <BookSearchBar id='searchbar' /> */}
 			</li>
+			<li className="all-book-link">
+				<NavLink className='navlink-link' exact to={`/books`}>Browse books</NavLink>
+			</li>
 
 			{sessionUser ? (
 					<>
 						{isLoaded && (
 							<>
+								<li className="add-book-button">
+									<NavLink className='navlink-link' exact to={`/books/new`}>Add a book</NavLink>
+								</li>
+								<li className="user-books-button">
+									<NavLink className='navlink-link' exact to={`/books/user`}>Your books</NavLink>
+								</li>
 								{/* <li className="read-books-li">
 									<NavLink className='readBooksClass' exact to={`/read`}>Read Books</NavLink>
 								</li> */}
-								<li className="add-book-button">
-									<NavLink className='navlink-link' exact to={`/books/new`}>Add a Book</NavLink>
-								</li>
-								<li className="user-books-button">
-									<NavLink className='navlink-link' exact to={`/books/user`}>Your Books</NavLink>
-								</li>
 								<li className="profile-button">
 									<ProfileButton user={sessionUser} />
 								</li>
