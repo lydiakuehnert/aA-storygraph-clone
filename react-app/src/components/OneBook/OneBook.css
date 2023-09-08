@@ -1,0 +1,8 @@
+.all-book-details {
+    display: flex;
+}
+
+.book-image-box img {
+    height: auto;
+    width: 300px;
+}

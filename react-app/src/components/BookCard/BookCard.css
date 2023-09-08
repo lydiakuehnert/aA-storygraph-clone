@@ -1,0 +1,9 @@
+.book-card {
+    display: flex;
+    width: 70%;
+}
+
+.book-card img {
+    height: auto;
+    width: 200px;
+}

@@ -154,7 +154,7 @@ export default function AddBook() {
                                 Description:
                                 <textarea
                                     type="text"
-                                    placeholder="Leave your review here..."
+                                    placeholder="Book description..."
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                     rows="10"

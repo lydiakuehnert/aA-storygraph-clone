@@ -1,15 +1,15 @@
 .all-user-books {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-direction: column;
+    gap: 20px;
     width: 1240px;
     margin: auto;
-    justify-content: center;
+    align-items: center;
 }
 
 .user-book-button-container {
     flex-direction: column;
+    width: 70%;
 }
 
 .user-book-buttons {
