@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { getBooksThunk } from "../../store/books";
 import BookCard from "../BookCard";
 import BookDelete from "../BookDelete";
@@ -12,16 +13,21 @@ export default function UserBooks() {
 
     const booksObj = useSelector(state => state.books.allBooks);
     const user = useSelector(state => state.session.user)
-    const books = Object.values(booksObj).filter(book => book.user?.id === user.id)
-
+    
+    
+    
     useEffect(() => {
         dispatch(getBooksThunk())
     }, [dispatch])
+    
+    if (!user) return <Redirect to="/books" />;
+    const books = Object.values(booksObj).filter(book => book.user?.id === user.id)
 
     return (
         <>
             <div className="index">
                 <div className="all-user-books">
+                    {!books.length && <h3>You have no books. Try adding a book!</h3>}
                     {books.length > 0 && books.map(book => (
                         <>
                             <div className="user-book-button-container">

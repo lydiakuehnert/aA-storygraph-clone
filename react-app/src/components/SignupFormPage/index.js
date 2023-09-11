@@ -52,7 +52,16 @@ function SignupFormPage() {
     setErrorObject({})
     if (!Object.values(errorObject).length) {
       if (password === confirmPassword) {
-          const data = await dispatch(signUp(username, email, password));
+
+          const formData = new FormData()
+          formData.append("username", username)
+          formData.append("email", email)
+          formData.append("password", password)
+          formData.append("firstname", firstname)
+          formData.append("lastname", lastname)
+          formData.append("profile_pic", profile_pic)
+
+          const data = await dispatch(signUp(formData));
           if (data) {
             setErrors(data)
           }
@@ -66,7 +75,7 @@ function SignupFormPage() {
     <div className="signup-outer-box">
       <div className="signup-box">
         <h1>Sign Up</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} enctype="multipart/form-data">
           <ul>
             {errors.map((error, idx) => (
               <li className='errors' key={idx}>{error}</li>
@@ -95,7 +104,7 @@ function SignupFormPage() {
           {errorObject.username && <p className='errors'>{errorObject.username}</p>}
 
           <label>
-            First Name
+            First Name (optional)
             <input className='signup-input'
               type="text"
               value={firstname}
@@ -105,7 +114,7 @@ function SignupFormPage() {
           {errorObject.firstname && <p className='errors'>{errorObject.firstname}</p>}
 
           <label>
-            Last Name
+            Last Name (optional)
             <input className='signup-input'
               type="text"
               value={lastname}
@@ -115,11 +124,11 @@ function SignupFormPage() {
           {errorObject.lastname && <p className='errors'>{errorObject.lastname}</p>}
 
           <label>
-            Profile Picture
+            Profile Picture (optional)
             <input className='signup-input'
-              type="text"
-              value={profile_pic}
-              onChange={(e) => setProfilePic(e.target.value)}
+              type="file"
+              accept='.pdf, .png, .jpg, .jpeg, .gif'
+              onChange={(e) => setProfilePic(e.target.files[0])}
             />
           </label>
           {errorObject.profile_pic && <p className='errors'>{errorObject.profile_pic}</p>}

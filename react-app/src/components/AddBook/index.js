@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { createBookThunk } from '../../store/books';
 import "./AddBook.css"
 
@@ -8,7 +8,6 @@ export default function AddBook() {
     const dispatch = useDispatch()
     const history = useHistory()
     const user = useSelector(state => state.session.user)
-    const user_id = user.id
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
     const [pageNum, setPageNum] = useState('')
@@ -42,6 +41,7 @@ export default function AddBook() {
             setErrors(validationErrors)
             return
         }
+        const user_id = user.id
 
         const formData = new FormData()
         formData.append("title", title)
@@ -63,6 +63,7 @@ export default function AddBook() {
         }
     }
 
+    if (!user) return <Redirect to="/books" />;
 
     return (
         <div className='index'>

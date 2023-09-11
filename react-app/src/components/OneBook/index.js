@@ -45,6 +45,7 @@ export default function OneBook() {
                 <div>
                     {user && (user.id !== book.user.id) ? <OpenModalButton
                         buttonText="Add a review"
+                        // modalProps={{ hAlign: "right", className: "modal-create-comment" }}
                         modalComponent={<ReviewPost book={book} /> } /> : <></>}
                 </div>
             </div>
