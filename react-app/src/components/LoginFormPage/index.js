@@ -10,7 +10,8 @@ function LoginFormPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState("");
   const history = useHistory();
 
 
@@ -20,7 +21,8 @@ function LoginFormPage() {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      // setErrors(data)
+      setErrors("Invalid Credentials");
     }
   };
 
@@ -41,11 +43,12 @@ function LoginFormPage() {
       </div>
       <div className="login-box">
         <form className="login-form" onSubmit={handleSubmit}>
-        <ul>
+        {/* <ul>
           {errors.map((error, idx) => (
             <li className='errors' key={idx}>{error}</li>
           ))}
-        </ul>
+        </ul> */}
+        {errors && <p className='errors'>{errors}</p>}
         <label>Email</label>
           <input
             type="text"
