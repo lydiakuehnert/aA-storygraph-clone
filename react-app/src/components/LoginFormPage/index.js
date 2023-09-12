@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
@@ -30,36 +31,40 @@ function LoginFormPage() {
   }
 
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="login-outer-box">
+      <div className="login-upper-box">
+        <NavLink exact to="/">
+          <i class="fa-solid fa-book-open-reader"></i>
+        </NavLink>
+        <h2>THE</h2>
+        <h2>PORCHSTORY</h2>
+      </div>
+      <div className="login-box">
+        <form className="login-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
             <li className='errors' key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
-          Email
+        <label>Email</label>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />
-        </label>
-        <label>
-          Password
+          /><br/>
+        <label>Password</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
-        </label>
+          /><br/>
         <button type="submit">Log In</button>
         <button id="login-demo" className='demo-button' onClick={loginDemo} >Demo User</button>
       </form>
-    </>
+      </div>
+    </div>
   );
 }
 

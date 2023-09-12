@@ -1,0 +1,66 @@
+.upper-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.errors {
+    color: red;
+}
+
+.upper-box .fa-book-open-reader {
+    color: black;
+    font-size: 80px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.upper-box h2 {
+    text-decoration: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.signup-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-form {
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    border: 1px solid grey;
+    border-radius: 5%;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.signup-form label {
+    margin-bottom: 5px;
+}
+
+.signup-input {
+    border: 2px solid black;
+    border-radius: 5%;
+    padding: 5px;
+}
+
+.signup-input:focus {
+    outline: none;
+    border-color: #fca311;
+    box-shadow: 0 0 8px #fca311;
+}
+
+.signup-form button {
+    cursor: pointer;
+    background-color: #14213d;
+    color: #fca311;
+    padding: 15px 0;
+    border-radius: 3%;
+    border: none;
+    font-size: large;
+}
