@@ -34,13 +34,15 @@ export default function UserBooks() {
                                 <BookCard key={book.id} book={book} />
                                 <div className="user-book-buttons">
                                     {user && user.id === book.user.id && <OpenModalButton
-                                        buttonClass='button-white'
+                                        buttonClass='button-user-books'
                                         buttonText='Delete your book'
+                                        modalProps={{ hAlign: "left" }}
                                         modalComponent={<BookDelete bookId={book.id} />}
                                     />}
                                     {user && user.id === book.user.id && <OpenModalButton
-                                        buttonClass='button-white'
+                                        buttonClass='button-user-books'
                                         buttonText='Edit your book'
+                                        modalProps={{ hAlign: "left" }}
                                         modalComponent={<BookEdit bookId={book.id} />}
                                     />}
                                 </div>
