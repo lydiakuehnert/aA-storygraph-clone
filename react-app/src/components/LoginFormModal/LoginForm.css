@@ -3,12 +3,12 @@
     list-style-type: none;
 }
 
-.login-outer-box {
+.modal-login-outer-box {
     display: block;
     text-align: center;
 }
 
-.login-box {
+.modal-login-box {
     display: flex;
     border-radius: 25px;
     justify-content: center;

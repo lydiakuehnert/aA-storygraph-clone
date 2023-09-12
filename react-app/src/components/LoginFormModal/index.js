@@ -30,8 +30,8 @@ function LoginFormModal() {
   }
 
   return (
-    <div className="login-outer-box">
-    <div className="login-box">
+    <div className="modal-login-outer-box">
+    <div className="modal-login-box">
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <ul>
@@ -57,8 +57,8 @@ function LoginFormModal() {
             required
           />
         </label>
-        <button id="login-nodemo" className='login-button' type="submit">Log In</button>
-        <button id="login-demo2" className='login-button' onClick={loginDemo} >Demo User</button>
+        <button id="login-nodemo" className='modal-login-button' type="submit">Log In</button>
+        <button id="login-demo2" className='modal-login-button' onClick={loginDemo} >Demo User</button>
       </form>
     </div>
     </div>
