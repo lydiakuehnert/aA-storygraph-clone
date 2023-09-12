@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
@@ -73,86 +74,78 @@ function SignupFormPage() {
 
   return (
     <div className="signup-outer-box">
+      <div className="upper-box">
+        <NavLink exact to="/">
+            <i class="fa-solid fa-book-open-reader"></i>
+        </NavLink>
+            <h2>THE</h2>
+            <h2>PORCHSTORY</h2>
+      </div>
       <div className="signup-box">
-        <h1>Sign Up</h1>
-        <form onSubmit={handleSubmit} enctype="multipart/form-data">
+        <form className="signup-form" onSubmit={handleSubmit} enctype="multipart/form-data">
           <ul>
             {errors.map((error, idx) => (
               <li className='errors' key={idx}>{error}</li>
             ))}
           </ul>
-          <label>
-            Email address
+          <label>Email address</label>
             <input className='signup-input'
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-            />
-          </label>
+          /><br />
           {errorObject.email && <p className='errors'>{errorObject.email}</p>}
 
-          <label>
-            Username
+          <label>Username</label>
             <input className='signup-input'
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-            />
-          </label>
+          /><br />
           {errorObject.username && <p className='errors'>{errorObject.username}</p>}
 
-          <label>
-            First Name (optional)
+          <label>First Name (optional)</label>
             <input className='signup-input'
               type="text"
               value={firstname}
               onChange={(e) => setFirstname(e.target.value)}
-            />
-          </label>
+            /><br/>
           {errorObject.firstname && <p className='errors'>{errorObject.firstname}</p>}
 
-          <label>
-            Last Name (optional)
+          <label>Last Name (optional)</label>
             <input className='signup-input'
               type="text"
               value={lastname}
               onChange={(e) => setLastname(e.target.value)}
-            />
-          </label>
+            /><br/>
           {errorObject.lastname && <p className='errors'>{errorObject.lastname}</p>}
 
-          <label>
-            Profile Picture (optional)
+          <label>Profile Picture (optional)</label>
             <input className='signup-input'
               type="file"
               accept='.pdf, .png, .jpg, .jpeg, .gif'
               onChange={(e) => setProfilePic(e.target.files[0])}
-            />
-          </label>
+            /><br/>
           {errorObject.profile_pic && <p className='errors'>{errorObject.profile_pic}</p>}
 
-          <label>
-            Password
+          <label>Password</label>
             <input className='signup-input'
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-            />
-          </label>
+            /><br/>
           {errorObject.password && <p className='errors'>{errorObject.password}</p>}
 
-          <label>
-            Confirm Password
+          <label>Confirm Password</label>
             <input className='signup-input'
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-            />
-          </label>
+            /><br/>
           <button type="submit">Sign Up</button>
         </form>
       </div>
