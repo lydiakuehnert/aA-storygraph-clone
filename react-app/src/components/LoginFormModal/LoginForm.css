@@ -15,10 +15,11 @@
     height: 100%;
     flex-direction: column;
     width: 400px;
+    margin-top: 15px;
 }
 
 
-.input {
+.modal-login-form input {
     display: inline-block;
     border: 1px solid rgb(135, 135, 135);
     padding: 12px;
@@ -26,6 +27,24 @@
     font-size: 14px;
     width: 350px;
     margin-bottom: 0.5em;
+}
+
+.modal-login-form input:focus {
+    outline: none;
+    border-color: #fca311;
+    box-shadow: 0 0 8px #fca311;
+}
+
+.modal-login-form p {
+    margin-top: 0;
+}
+
+.modal-login-button {
+    cursor: pointer;
+    background-color: #14213d;
+    color: #fca311;
+    border-radius: 3%;
+    border: none;
 }
 
 #login-nodemo {

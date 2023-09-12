@@ -52,15 +52,17 @@ function Navigation({ isLoaded }){
 
 				) : (
 					<>
-						<li className="login-button">
+						<li>
 							<OpenModalButton
-								buttonText="Sign In"
+								buttonText="Sign in"
+								buttonClass='navbar-button'
 								modalComponent={<LoginFormModal />}
 							/>
 						</li>
-						<li className="signup-button">
+						<li>
 							<OpenModalButton
-								buttonText="Create Account"
+								buttonText="Sign up"
+								buttonClass="navbar-button"
 								modalComponent={<SignupFormModal />}
 							/>
 						</li>

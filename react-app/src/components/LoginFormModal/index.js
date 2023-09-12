@@ -9,7 +9,8 @@ function LoginFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState("");
   const { closeModal } = useModal();
   const history = useHistory()
 
@@ -17,7 +18,8 @@ function LoginFormModal() {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      // setErrors(data);
+      setErrors("Invalid Credentials");
     } else {
         closeModal()
     }
@@ -32,14 +34,13 @@ function LoginFormModal() {
   return (
     <div className="modal-login-outer-box">
     <div className="modal-login-box">
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
+      <form className="modal-login-form" onSubmit={handleSubmit}>
+        {/* <ul>
           {errors.map((error, idx) => (
             <li className="errors" key={idx}>{error}</li>
           ))}
-        </ul>
-        <label>
+        </ul> */}
+        {errors && <p className='errors'>{errors}</p>}
           <input
             type="text"
             placeholder="Email"
@@ -47,8 +48,6 @@ function LoginFormModal() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
           <input
             type="password"
             placeholder="Password"
@@ -56,8 +55,7 @@ function LoginFormModal() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <button id="login-nodemo" className='modal-login-button' type="submit">Log In</button>
+        <button id="login-nodemo" className='modal-login-button' type="submit">Log in</button>
         <button id="login-demo2" className='modal-login-button' onClick={loginDemo} >Demo User</button>
       </form>
     </div>

@@ -1,0 +1,55 @@
+.errors {
+    color: red;
+    list-style-type: none;
+}
+
+.modal-signup-outer-box {
+    display: block;
+    text-align: center;
+}
+
+.modal-signup-box {
+    display: flex;
+    border-radius: 25px;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    width: 400px;
+}
+
+.modal-signup-form input {
+    display: inline-block;
+    border: 1px solid rgb(135, 135, 135);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 350px;
+    margin-bottom: 0.5em;
+}
+
+.modal-signup-form input:focus {
+    outline: none;
+    border-color: #fca311;
+    box-shadow: 0 0 8px #fca311;
+}
+
+.modal-signup-form label {
+    text-align: left;
+}
+
+.modal-signup-form button {
+    cursor: pointer;
+    background-color: #14213d;
+    color: #fca311;
+    border-radius: 3%;
+    border: none;
+    padding: 15px 0;
+    font-size: large;
+    width: 376px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-signup-form p {
+    margin-top: 0;
+}
