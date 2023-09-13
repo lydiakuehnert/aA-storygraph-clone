@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getBooksThunk } from "../../store/books";
-import BookCard from "../BookCard";
+import UserBookCard from "../UserBookCard";
 import BookDelete from "../BookDelete";
 import BookEdit from "../BookEdit";
 import OpenModalButton from "../OpenModalButton";
@@ -31,7 +31,7 @@ export default function UserBooks() {
                     {books.length > 0 && books.map(book => (
                         <>
                             <div className="user-book-button-container">
-                                <BookCard key={book.id} book={book} />
+                                <UserBookCard key={book.id} book={book} />
                                 <div className="user-book-buttons">
                                     {user && user.id === book.user.id && <OpenModalButton
                                         buttonClass='button-user-books'
