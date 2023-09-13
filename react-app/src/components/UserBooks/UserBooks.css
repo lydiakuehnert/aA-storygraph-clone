@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
+
 .all-user-books {
     display: flex;
     flex-direction: column;
@@ -14,9 +16,16 @@
 
 .user-book-buttons {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: end;
 }
 
-.user-book-buttons button {
-    width: 80px
+.button-user-books {
+    padding: 10px 20px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #14213d;
+    color: #fca311;
+    font-size: large;
 }
