@@ -1,8 +1,3 @@
-.login-outer-box {
-    /* display: flex;
-    flex-direction: row; */
-}
-
 .login-upper-box {
     display: flex;
     flex-direction: column;

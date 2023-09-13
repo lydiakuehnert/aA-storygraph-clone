@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { deleteBookThunk } from "../../store/books";
+import './BookDelete.css';
 
 export default function BookDelete({ bookId }) {
     const dispatch = useDispatch();
@@ -13,11 +14,11 @@ export default function BookDelete({ bookId }) {
     }
 
     return (
-        <div className="delete-modal">
+        <div className="delete-book-modal">
             <h2>Confirm Delete</h2>
-            <p>Are you sure you want to remove this book?</p>
-            <button onClick={handleDelete} className="yes-button">Yes (Delete Book Permanently)</button>
-            <button onClick={closeModal} className="no-button">Cancel (Keep Book)</button>
+            <p>Are you sure you want to remove this book? This action is permanent.</p>
+            <button onClick={handleDelete} className="yes-delete-button">Yes (Delete Book)</button>
+            <button onClick={closeModal} className="no-delete-button">Cancel (Keep Book)</button>
         </div>
     )
 }

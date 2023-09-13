@@ -49,9 +49,9 @@ function ProfileButton({ user }) {
             <li>{user.username}</li>
             <li>{user.email}</li>
             <li>{user.firstname} {user.lastname}</li>
-            {/* <li className="clicky" id="profile-link"><Link to='/profile' onClick={closeMenu}>Profile</Link></li> */}
+            {/* <li id="profile-link"><Link to='/profile' onClick={closeMenu}>Profile</Link></li> */}
             <li>
-              <button onClick={handleLogout}>Sign Out</button>
+              <button className="signout-button" onClick={handleLogout}>Sign out</button>
             </li>
           </>
         ) : (

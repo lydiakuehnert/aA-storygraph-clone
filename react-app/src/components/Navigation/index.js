@@ -52,15 +52,19 @@ function Navigation({ isLoaded }){
 
 				) : (
 					<>
-						<li className="login-button">
+						<li>
 							<OpenModalButton
-								buttonText="Sign In"
+								buttonText="Sign in"
+								buttonClass='navbar-button'
+								modalProps={{ hAlign: "center" }}
 								modalComponent={<LoginFormModal />}
 							/>
 						</li>
-						<li className="signup-button">
+						<li>
 							<OpenModalButton
-								buttonText="Create Account"
+								buttonText="Sign up"
+								buttonClass="navbar-button"
+								modalProps={{ hAlign: "center" }}
 								modalComponent={<SignupFormModal />}
 							/>
 						</li>

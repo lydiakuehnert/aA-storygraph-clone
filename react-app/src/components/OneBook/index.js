@@ -22,7 +22,6 @@ export default function OneBook() {
     }, [dispatch])
 
 
-
     if (!book) return null;
     if (!book.id) return null;
 
@@ -45,7 +44,7 @@ export default function OneBook() {
                 <div>
                     {user && (user.id !== book.user.id) ? <OpenModalButton
                         buttonText="Add a review"
-                        // modalProps={{ hAlign: "right", className: "modal-create-comment" }}
+                        modalProps={{ hAlign: "right", className: "modal-create-review" }}
                         modalComponent={<ReviewPost book={book} /> } /> : <></>}
                 </div>
             </div>

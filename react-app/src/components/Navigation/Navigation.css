@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
 
 .profile-dropdown {
   position: absolute;
@@ -23,34 +23,20 @@ li {
   padding-top: 5px;
 }
 
-.profile-dropdown a {
-  text-decoration: none;
-  color: black;
-  display: block;
-}
-
-.clicky {
-  background-color: gainsboro;
-}
-
-.clicky:hover {
-  background-color: gray;
-}
-
 #profile-link {
+  background-color: gainsboro;
   border-bottom: 1px solid white;
+}
+
+#profile-link:hover {
+  background-color: gray;
 }
 
 #logo {
   font-size: 1.5rem;
   text-decoration: none;
   color: white;
-  font-family: 'Bungee', cursive;
   margin-left: .5em;
-}
-
-.fa-book-open-reader {
-  color: white;
 }
 
 .logo-li {
@@ -58,8 +44,17 @@ li {
   padding-left: 5px;
 }
 
+#logo:hover {
+  color: #fca311;
+}
+
 #noDeco {
+  color: white;
   text-decoration: none;
+}
+
+#noDeco:hover {
+  color: #fca311;
 }
 
 .nav-bar {
@@ -70,13 +65,14 @@ li {
   padding-bottom: 20px;
   width: 85%;
   list-style-type: none;
-  border-bottom: 1px solid rgb(172, 168, 168);
-  background-color: black;
+  border-bottom: 1px solid black;
+  background-color: #14213d;
   margin: auto;
 }
 
 .nav-background {
-  background-color: black;
+  background-color: #14213d;
+  border-bottom: 1px solid black;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -92,11 +88,6 @@ li {
   gap: 2em;
 }
 
-.create-spot-link {
-  text-decoration: none;
-  color: rgb(84, 84, 212);
-}
-
 .menu-div {
   position: relative;
 }
@@ -104,9 +95,9 @@ li {
 .menu-div ul {
   position: absolute;
   list-style-type: none;
-  top: 35px;
-  right: 5px;
-  border: 1px solid black;
+  top: 40px;
+  right: 0;
+  border: 1px solid #e5e5e5;
   border-radius: 5px;
   padding: 5px;
   width: 150px;
@@ -127,13 +118,18 @@ li {
   color: black;
 }
 
-.logout-button {
-  background-color: rgb(79, 78, 78);
-  border: 2px solid black;
-  color: white;
-  border-radius: 45%;
+.signout-button {
+  background-color: #14213d;
+  border: 1px solid black;
+  color: #fca311;
+  border-radius: 10%;
   padding: 10px 17px;
   cursor: pointer;
+}
+
+.signout-button:hover {
+  background-color: black;
+  color: #e5e5e5;
 }
 
 .searchbar-li {
@@ -147,10 +143,6 @@ li {
   border: 0;
 }
 
-/* .search-button {
-  background-image: ;
-} */
-
 .menu-button {
   cursor: pointer;
 }
@@ -159,29 +151,41 @@ li {
   height: 33px;
   width: 33px;
   object-fit: cover;
-
   border-radius: 45%;
 }
 
 .fa-angle-down {
   font-size: small;
-  color: gray;
+  color: #e5e5e5;
   margin-left: 3px;
   vertical-align: super;
   cursor: pointer;
 }
 
 .menu-button:hover .fa-angle-down {
-  color: white;
+  color: #fca311;
 }
 
 .navlink-link {
   text-decoration: none;
-  color: gray;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e5e5e5;
 }
 
 .navlink-link:hover {
-  color: white;
+  color: #fca311;
   text-decoration: underline;
+}
+
+.navbar-button {
+  cursor: pointer;
+  color: white;
+  background-color: #14213d;
+  border: 1px solid #e5e5e5;
+  border-radius: 5%;
+  padding: 8px;
+}
+
+.navbar-button:hover {
+  background-color: black;
+  color: #fca311;
 }

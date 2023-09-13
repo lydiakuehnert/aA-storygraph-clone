@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto;
 }
 
 #modal-background {
@@ -19,6 +20,44 @@
 }
 
 #modal-content {
-  position: absolute;
+  position: relative;
   background-color:white;
+  margin-top: auto;
+  margin-bottom: auto;
 }
+
+.modal-content[class*="-right"] {
+  margin-left: auto;
+  animation: slide-in 0.5s ease-out;
+}
+
+.modal-content[class*="-center"] {
+  background-color: rgba(254, 254, 254, 0.901);
+  animation: slide-down 0.5s ease-out;
+}
+
+.modal-content[class*="-left"] {
+  /* margin-right: auto; */
+  background-color: #e5e5e5;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+

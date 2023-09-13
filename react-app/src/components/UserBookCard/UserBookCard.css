@@ -1,12 +1,12 @@
-.book-card {
+.user-book-card {
     display: flex;
-    width: 70%;
+    width: 100%;
     border: 2px solid #e5e5e5;
     margin-top: 20px;
     margin-bottom: 0;
 }
 
-.book-card img {
+.user-book-card img {
     height: 100%;
     width: 180px;
 }
