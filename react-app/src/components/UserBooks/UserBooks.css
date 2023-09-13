@@ -28,4 +28,9 @@
     background-color: #14213d;
     color: #fca311;
     font-size: large;
+    opacity: 0.9;
+}
+
+.button-user-books:hover {
+    opacity: 1;
 }

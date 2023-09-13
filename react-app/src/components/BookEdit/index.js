@@ -81,75 +81,72 @@ export default function BookEdit({ bookId }) {
 
     return (
         <div className='book-edit-div'>
-            <h1>Edit Book</h1>
+            <h1>Edit your book</h1>
             <form id='book-edit-form' enctype="multipart/form-data" onSubmit={handleSubmit}>
                 <section id='edit-book-data'>
                     <div className='book-edit-inputs'>
-                        <label>
-                            Title
-                            <input
-                                className='edit-bars'
-                                type='text'
-                                value={title}
-                                maxLength='400'
-                                size='30'
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                        </label>
-                    </div>
-                    {errors.title && <p className='errors'>{errors.title}</p>}
-
-                    <label>
-                        Author:
+                    <label>Title:</label>
                         <input
+                            className='text-edit-input'
+                            type='text'
+                            value={title}
+                            maxLength='400'
+                            size='30'
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                    {errors.title && <p className='errors'>{errors.title}</p>}
+                    </div>
+
+                    <div className='book-edit-inputs'>
+                    <label>Author:</label>
+                        <input
+                            className='text-edit-input'
                             type='text'
                             placeholder='Book Author'
                             value={author}
                             maxLength='500'
                             onChange={(e) => setAuthor(e.target.value)}
                         />
-                    </label>
-
                     {errors.author && <p className='errors'>{errors.author}</p>}
-
-                    <label>
-                        Number of Pages:
+                    </div>
+                    
+                    <div className='book-edit-inputs'>
+                    <label>Number of Pages:</label>
                         <input
+                            className='num-edit-input'
                             type='number'
                             value={pageNum}
                             onChange={(e) => setPageNum(e.target.value)}
                         />
-                    </label>
-
                     {errors.pageNum && <p className='errors'>{errors.pageNum}</p>}
+                    </div>
 
-                    <label>
-                        Year Published:
+                    <div className='book-edit-inputs'>
+                    <label>Year Published:</label>
                         <input
+                            className='num-edit-input'
                             type='number'
                             value={yrPub}
                             onChange={(e) => setYrPub(e.target.value)}
                         />
-                    </label>
-
                     {errors.yrPub && <p className='errors'>{errors.yrPub}</p>}
+                    </div>
 
-                    <label >
-                        Genre:
+                    <div className='book-edit-inputs'>
+                    <label>Genre:</label>
                         <input
+                            className='text-edit-input'
                             type='text'
                             placeholder='Book Genre'
                             value={genre}
                             maxLength='255'
                             onChange={(e) => setGenre(e.target.value)}
                         />
-                    </label>
-
                     {errors.genre && <p className='errors'>{errors.genre}</p>}
+                    </div>
 
                     <div className='book-edit-inputs'>
-                        <label>
-                            Book Cover Picture
+                        <label>Book Cover Picture:</label>
                             <input
                                 className='edit-bars'
                                 type='file'
@@ -164,29 +161,24 @@ export default function BookEdit({ bookId }) {
                                 value={`Replace ${currentPic}`}
                                 onClick={handlePic}
                             />
-                        </label>
-                    </div>
                     {errors.picture && <p className='errors'>{errors.picture}</p>}
+                    </div>
 
-                    <label>
-                        Description:
+                    <div className='book-edit-inputs'>
+                    <label>Description:</label>
                         <textarea
                             type="text"
-                            placeholder="Leave your review here..."
+                            placeholder="Leave your description here..."
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                             rows="10"
-                            cols="35"
+                            cols="60"
                         />
-                    </label>
-
-                    {errors.description && <p className='add-validators'>{errors.description}</p>}
+                    </div>
+                    {errors.description && <p className='errors'>{errors.description}</p>}
 
                 </section>
-                <div id='edit-book-btn'>
-                    <button type="submit">Edit Book</button>
-
-                </div>
+                <button type="submit" id='edit-book-btn'>Edit your book</button>
                 {(updating) && <p>Updating...</p>}
             </form>
         </div>
