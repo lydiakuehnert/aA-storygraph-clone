@@ -26,10 +26,10 @@
 
 .yes-delete-button:hover {
     background-color: black;
-    color: red;
+    color: white;
 }
 
 .no-delete-button:hover {
-    background-color: black;
-    color: white;
+    background-color: #fca311;
+    color: #14213d;
 }

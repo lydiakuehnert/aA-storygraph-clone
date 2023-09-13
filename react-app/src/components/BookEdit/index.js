@@ -178,7 +178,7 @@ export default function BookEdit({ bookId }) {
                     {errors.description && <p className='errors'>{errors.description}</p>}
 
                 </section>
-                <button type="submit" id='edit-book-btn'>Edit your book</button>
+                <button type="submit" id='edit-book-btn' className='btn-hover'>Edit your book</button>
                 {(updating) && <p>Updating...</p>}
             </form>
         </div>

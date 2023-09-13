@@ -44,7 +44,7 @@ export function ModalProvider({ children }) {
 export function Modal() {
   const { modalRef, modalContent, closeModal, modalProps } = useContext(ModalContext);
 
-  const { vAlign = "middle", hAlign = "center", className = "", id = "" } = modalProps;
+  const { hAlign = "center", className = "" } = modalProps;
   // If there is no div referenced by the modalRef or modalContent is not a
   // truthy value, render nothing:
   if (!modalRef || !modalRef.current || !modalContent) return null;
@@ -53,7 +53,7 @@ export function Modal() {
   return ReactDOM.createPortal(
     <div id="modal">
       <div id="modal-background" onClick={closeModal} />
-      <div id="modal-content" className={`modal-content modal-content--${vAlign}-${hAlign} ${className}`}>
+      <div id="modal-content" className={`modal-content modal-content--${hAlign} ${className}`}>
         {modalContent}
       </div>
     </div>,
