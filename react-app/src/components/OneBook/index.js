@@ -10,6 +10,7 @@ import "./OneBook.css"
 
 export default function OneBook() {
     const { bookId } = useParams();
+    const [hideDes, setHideDes] = useState(true)
 
     const dispatch = useDispatch();
 
@@ -20,6 +21,11 @@ export default function OneBook() {
     useEffect(() => {
         dispatch(getBookThunk(bookId))
     }, [dispatch])
+
+    const changeDes = () => {
+        if (hideDes) setHideDes(false)
+        else setHideDes(true)
+    }
 
 
     if (!book) return null;
@@ -34,12 +40,24 @@ export default function OneBook() {
                 <div className="book-details">
                     <h1>{book.title}</h1>
                     <h2>{book.author}</h2>
-                    <div>
+                    <div id="book-detail-nums">
                         <p>{book.pageNum} pages</p>
+                        <p> &nbsp; ·  &nbsp; </p>
                         <p>Published: {book.yrPublished}</p>
                     </div>
-                    <h3>{book.genre}</h3>
-                    <p>{book.description}</p>
+                    <h4>{book.genre}</h4>
+
+                    {hideDes ? 
+                    <div id="book-des-div">
+                        <h3>DESCRIPTION</h3>
+                        <p>{book.description.substr(0, book.description.lastIndexOf(' ', 500))}...</p>
+                        <button onClick={changeDes}>READ MORE</button>
+                    </div> :
+                    <div id="book-des-div">
+                        <h3>DESCRIPTION</h3>
+                        <p>{book.description}</p>
+                        <button onClick={changeDes}>READ LESS</button>
+                    </div>}
                 </div>
                 <div>
                     {user && (user.id !== book.user.id) ? <OpenModalButton
