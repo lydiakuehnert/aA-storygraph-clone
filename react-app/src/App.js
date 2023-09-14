@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import AllBooks from "./components/AllBooks";
 import OneBook from "./components/OneBook";
@@ -46,6 +47,7 @@ function App() {
             </Route>
           </Switch>
         )}
+        <Footer isLoaded={isLoaded} />
     </>
   );
 }

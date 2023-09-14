@@ -1,0 +1,52 @@
+#footer-box {
+    background-color: #e5e5e5;
+    border-top: 1px solid #14213d;
+    position: sticky;
+    bottom: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: space-around;
+    padding: 2px;
+}
+
+#footer-skill-icons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.skill-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+#personal-details {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#lydia-pic {
+    transition: all 0.7s;
+    border-radius: 50%;
+    border: solid 0.1rem #14213d;
+    width: 2.5rem;
+}
+
+#lydia-pic:hover {
+    transition: all 0.7s;
+    width: 3.1rem;
+}
+
+#footer-link-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.fa-brands {
+    font-size: 30px;
+    color: #14213d;
+}
