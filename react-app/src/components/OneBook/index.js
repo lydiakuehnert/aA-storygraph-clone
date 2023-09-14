@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getBookThunk } from "../../store/books";
+import { getReviewsThunk } from "../../store/reviews";
 import OpenModalButton from "../OpenModalButton";
 import ReviewPost from "../ReviewPost";
 import BookReviews from "../BookReviews";
@@ -16,6 +17,12 @@ export default function OneBook() {
 
     const book = useSelector(state => state.books.singleBook);
     const user = useSelector(state => state.session.user)
+    const reviewsObj = useSelector(state => state.reviews.book);
+    const reviews = Object.values(reviewsObj)
+
+    useEffect(() => {
+        dispatch(getReviewsThunk(book.id))
+    }, [dispatch, book.id])
   
 
     useEffect(() => {
@@ -68,7 +75,10 @@ export default function OneBook() {
                         modalComponent={<ReviewPost book={book} /> } /> : <></>}
                 </div>
             </div>
-            <h2>Community Reviews <i className="fa-solid fa-star"></i> {book.avgRating.toFixed(1)}</h2>
+            <div id="review-headline-box">
+                <h2>COMMUNITY REVIEWS</h2>
+                <h4><i className="fa-solid fa-star"></i> {book.avgRating.toFixed(1)} out of {reviews.length} total reviews</h4>
+            </div>
             <div className="review-detail-box">
                 <BookReviews book={book} />
             </div>

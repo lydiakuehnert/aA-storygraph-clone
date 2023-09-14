@@ -17,9 +17,9 @@ export default function ReviewDelete({ review, bookId }) {
     }
 
     return (
-        <div className="delete-modal">
+        <div className="delete-review-modal">
             <h2>Confirm Delete</h2>
-            <p>Do you really want to remove this review?</p>
+            <p>Do you really want to remove this review? This action is permanent.</p>
             <button onClick={handleDelete} className="yes-button">Yes (Delete Review)</button>
             <button onClick={closeModal} className="no-button">Cancel (Keep Review)</button>
         </div>

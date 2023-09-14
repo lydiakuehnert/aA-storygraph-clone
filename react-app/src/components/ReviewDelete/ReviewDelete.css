@@ -1,0 +1,37 @@
+.delete-review-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    width: 350px;
+}
+
+.delete-review-modal p {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.delete-review-modal button {
+    cursor: pointer;
+    background-color: #14213d;
+    color: #fca311;
+    border-radius: 3%;
+    border: none;
+    font-size: 14px;
+    padding: 12px;
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.yes-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.no-button:hover {
+    background-color: #fca311;
+    color: #14213d;
+}

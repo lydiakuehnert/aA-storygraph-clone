@@ -19,7 +19,7 @@ export default function ReviewEdit({ review, bookId }) {
         e.preventDefault()
         let validationErrors = {}
 
-        if (input.length < 1) validationErrors.review = 'Please provide a valid review'
+        if (input.length < 10) validationErrors.review = 'Please provide a valid review'
 
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors)
@@ -44,16 +44,11 @@ export default function ReviewEdit({ review, bookId }) {
     }
 
     return (
-        <div className="edit-modal">
-            <h2>Edit Review</h2>
+        <div className="edit-review-modal">
+            <h2>Do you want to change your review?</h2>
+            <p>(Must include star rating and at least 10 characters to submit your review.)</p>
             {Object.values(errors).length > 0 && <p className="errors">{errors.review}</p>}
-            <textarea
-                type="text"
-                placeholder="Update your review"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-            />
-            <div className="rating-input">
+            <div className="edit-rating-input">
                 <div onMouseEnter={() => setActiveRating(1)}
                     onMouseLeave={() => setActiveRating(rating)}
                     onClick={() => setRating(1)}>
@@ -79,9 +74,14 @@ export default function ReviewEdit({ review, bookId }) {
                     onClick={() => setRating(5)}>
                     {activeRating > 4 ? <i className="fa-solid fa-star"></i> : <i className="fa-regular fa-star"></i>}
                 </div>
-                <h5>Stars</h5>
             </div>
-            <button onClick={handleEdit} disabled={input.length < 1 || rating < 1} className="edit-button">Edit Review</button>
+            <textarea
+                type="text"
+                placeholder="Update your review"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+            />
+            <button onClick={handleEdit} disabled={input.length < 10 || rating < 1} className="edit-button">Edit your review</button>
             <button onClick={closeModal} className="cancel-button">Cancel</button>
         </div>
     )

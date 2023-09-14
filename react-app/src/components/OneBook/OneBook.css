@@ -6,7 +6,7 @@
 
 .all-book-details {
     width: 85%;
-    margin: 0 auto;
+    margin: 50px auto;
 }
 
 .book-image-box {
@@ -78,7 +78,7 @@
 }
 
 .fa-star {
-    color: gold;
+    color: #fca311;
 }
 
 #review-add-btn-div {
@@ -99,4 +99,23 @@
 .review-open-button:hover {
     background-color: #fca311;
     color: #14213d;
+}
+
+#review-headline-box {
+    text-align: center;
+    border-top: 2px solid #e5e5e5;
+    margin-top: 70px;
+}
+
+#review-headline-box h2 {
+    margin-bottom: 0;
+} 
+
+#review-headline-box h4 {
+    margin-top: 10px;
+}
+
+.review-detail-box {
+    margin: 0 auto;
+    width: 70%;
 }
