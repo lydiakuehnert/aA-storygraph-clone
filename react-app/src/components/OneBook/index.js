@@ -59,9 +59,11 @@ export default function OneBook() {
                         <button onClick={changeDes}>READ LESS</button>
                     </div>}
                 </div>
-                <div>
+                <div id="review-add-btn-div">
                     {user && (user.id !== book.user.id) ? <OpenModalButton
-                        buttonText="Add a review"
+                        buttonText={<i className="fa-solid fa-star"></i>}
+                        buttonText2="&nbsp;&nbsp;Add review"
+                        buttonClass="review-open-button"
                         modalProps={{ hAlign: "right", className: "modal-create-review" }}
                         modalComponent={<ReviewPost book={book} /> } /> : <></>}
                 </div>

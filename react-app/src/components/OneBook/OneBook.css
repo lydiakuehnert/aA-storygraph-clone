@@ -80,3 +80,23 @@
 .fa-star {
     color: gold;
 }
+
+#review-add-btn-div {
+    margin-top: 40px;
+}
+
+.review-open-button {
+    width: 120px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #14213d;
+    color: #fca311;
+    padding: 5px 0;
+}
+
+.review-open-button:hover {
+    background-color: #fca311;
+    color: #14213d;
+}
