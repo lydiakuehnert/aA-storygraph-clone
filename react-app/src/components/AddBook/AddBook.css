@@ -1,0 +1,88 @@
+.add-errors {
+    color: red;
+}
+
+#outer-add-book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.book-add-div {
+    border: 2px solid #e5e5e5;
+    border-radius: 5%;
+    padding: 30px;
+    width: 50%;
+}
+
+.book-add-div h1 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.book-add-div h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+#add-form-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-form-label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.add-num-input {
+    margin-top: 10px;
+}
+
+.add-num-input input {
+    margin-left: 8px;
+}
+
+.add-form input {
+    border: 1px solid rgb(135, 135, 135);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.add-form input:focus {
+    outline: none;
+    border-color: #fca311;
+    box-shadow: 0 0 8px #fca311;
+}
+
+.add-form textarea:focus {
+    outline: none;
+    border-color: #fca311;
+    box-shadow: 0 0 8px #fca311;
+}
+
+#add-book-btn-div {
+    text-align: end;
+    margin-top: 20px;
+}
+
+#add-book-btn {
+    cursor: pointer;
+    background-color: #14213d;
+    color: #fca311;
+    border-radius: 3%;
+    border: none;
+    font-size: 14px;
+    padding: 12px;
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#add-book-btn:hover {
+    background-color: #fca311;
+    color: #14213d;
+}

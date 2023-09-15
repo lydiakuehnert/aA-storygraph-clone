@@ -75,7 +75,7 @@ li {
   border-bottom: 1px solid black;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 3;
 }
 
 .nav-bar>li {
@@ -128,8 +128,8 @@ li {
 }
 
 .signout-button:hover {
-  background-color: black;
-  color: #e5e5e5;
+  background-color: #fca311;
+  color: #14213d;
 }
 
 .searchbar-li {
@@ -186,6 +186,7 @@ li {
 }
 
 .navbar-button:hover {
-  background-color: black;
-  color: #fca311;
+  background-color: #fca311;
+  color: #14213d;
+  border: none;
 }

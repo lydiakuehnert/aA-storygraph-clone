@@ -32,21 +32,22 @@ export default function BookReviews({ book }) {
 
                 return (
                     <div key={review.id} className="one-review-box">
-                        <h4>{review.user && review.user.username}</h4>
-                        <h5>
-                            {month} {date}, {year}
-                        </h5>
+                        <h4 id="one-review-username">{review.user && review.user.username}'s review:</h4>
+                        <h5>{month} {date}, {year}</h5>
+                        <h4 id="one-review-stars"><i className="fa-solid fa-star"></i> {review.stars}</h4>
                         <p>{review.review}</p>
-                        <div className="review-buttons">
-                            <div id='editbtn'>
+                        <div className="review-buttons-box">
+                            <div>
                                 {sessionUser && sessionUser.id === review.user.id && <OpenModalButton
-                                    buttonText="Edit"
+                                    buttonText="Edit your review"
+                                    buttonClass='review-btn'
                                     modalComponent={<ReviewEdit review={review} bookId={book.id} />}
                                 />}
                             </div>
-                            <div id='deletebtn'>
+                            <div>
                                 {sessionUser && sessionUser.id === review.user.id && <OpenModalButton
-                                    buttonText="Delete"
+                                    buttonText="Delete your review"
+                                    buttonClass='review-btn'
                                     modalComponent={<ReviewDelete review={review} bookId={book.id} />}
                                 />}
                             </div>

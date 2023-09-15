@@ -24,34 +24,32 @@ export default function UserBooks() {
     const books = Object.values(booksObj).filter(book => book.user?.id === user.id)
 
     return (
-        <>
-            <div className="index">
-                <div className="all-user-books">
-                    {!books.length && <h3>You have no books. Try adding a book!</h3>}
-                    {books.length > 0 && books.map(book => (
-                        <>
-                            <div className="user-book-button-container">
-                                <UserBookCard key={book.id} book={book} />
-                                <div className="user-book-buttons">
-                                    {user && user.id === book.user.id && <OpenModalButton
-                                        buttonClass='button-user-books'
-                                        buttonText='Delete your book'
-                                        modalProps={{ hAlign: "left" }}
-                                        modalComponent={<BookDelete bookId={book.id} />}
-                                    />}
-                                    {user && user.id === book.user.id && <OpenModalButton
-                                        buttonClass='button-user-books'
-                                        buttonText='Edit your book'
-                                        modalProps={{ hAlign: "left" }}
-                                        modalComponent={<BookEdit bookId={book.id} />}
-                                    />}
-                                </div>
+        <div id="user-books-box">
+            <div className="all-user-books">
+                {!books.length && <h3>You have no books. Try adding a book!</h3>}
+                {books.length > 0 && books.map(book => (
+                    <>
+                        <div className="user-book-button-container">
+                            <UserBookCard key={book.id} book={book} />
+                            <div className="user-book-buttons">
+                                {user && user.id === book.user.id && <OpenModalButton
+                                    buttonClass='button-user-books'
+                                    buttonText='Delete your book'
+                                    modalProps={{ hAlign: "left" }}
+                                    modalComponent={<BookDelete bookId={book.id} />}
+                                />}
+                                {user && user.id === book.user.id && <OpenModalButton
+                                    buttonClass='button-user-books'
+                                    buttonText='Edit your book'
+                                    modalProps={{ hAlign: "left" }}
+                                    modalComponent={<BookEdit bookId={book.id} />}
+                                />}
                             </div>
-                        </>
-                    ))}
+                        </div>
+                    </>
+                ))}
 
-                </div>
             </div>
-        </>
+        </div>
     )
 }

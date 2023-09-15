@@ -4,6 +4,7 @@ import { useModal } from '../../context/Modal';
 function OpenModalButton({
   modalComponent, // component to render inside the modal
   buttonText, // text of the button that opens the modal
+  buttonText2,
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
   onModalClose, // optional: callback function that will be called once the modal is closed
   buttonClass,
@@ -19,7 +20,7 @@ function OpenModalButton({
   };
 
   return (
-    <button onClick={onClick} className={buttonClass}>{buttonText}</button>
+    <button onClick={onClick} className={buttonClass}>{buttonText}{buttonText2}</button>
   );
 }
 

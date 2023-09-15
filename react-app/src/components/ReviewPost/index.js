@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createReviewThunk } from "../../store/reviews";
 import "./ReviewPost.css";
@@ -12,7 +12,6 @@ export default function ReviewPost({ book }) {
     const [rating, setRating] = useState("");
     const [activeRating, setActiveRating] = useState(rating);
     const [errors, setErrors] = useState({})
-    const sessionUser = useSelector(state => state.session.user);
 
     const bookId = book.id;
 
@@ -20,7 +19,7 @@ export default function ReviewPost({ book }) {
         e.preventDefault()
         let validationErrors = {}
 
-        if (input.length < 1) validationErrors.review = 'Please provide a valid review'
+        if (input.length < 10) validationErrors.review = 'Please provide a valid review'
 
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors)
@@ -42,10 +41,11 @@ export default function ReviewPost({ book }) {
     }
 
     return (
-        <div className="review-modal">
+        <div className="add-review-modal">
             <h2>Did you enjoy this book?</h2>
+            <p>(Must choose star rating and input at least 10 characters to submit your review.)</p>
             {Object.values(errors).length > 0 && <p className="errors">{errors.review}</p>}
-            <div className="rating-input">
+            <div className="add-rating-input">
                 <div onMouseEnter={() => setActiveRating(1)}
                     onMouseLeave={() => setActiveRating(rating)}
                     onClick={() => setRating(1)}>
@@ -78,7 +78,7 @@ export default function ReviewPost({ book }) {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
             />
-            <button onClick={handleSubmit} disabled={input.length < 1 || rating < 1} className="submit-button">Submit your review</button>
+            <button onClick={handleSubmit} disabled={input.length < 10 || rating < 1} className="submit-button">Submit your review</button>
         </div>
     )
 }

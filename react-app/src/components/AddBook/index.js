@@ -66,111 +66,103 @@ export default function AddBook() {
     if (!user) return <Redirect to="/books" />;
 
     return (
-        <div className='index'>
-            <div className='book-add-div'>
-                <h1>Add a Book</h1>
-                <form className='add-form' enctype="multipart/form-data" onSubmit={handleSubmit}>
-                    <div className='add-div'>
-                        <section id='add-form-data'>
+        <div id='outer-add-book'>
+        <div className='book-add-div'>
+            <h1>Add a book</h1>
+            <h3>Fill out this form to add a book to our library.</h3>
+            <form className='add-form' enctype="multipart/form-data" onSubmit={handleSubmit}>
+                <section id='add-form-data'>
 
-                            <label className='add-form-elements' >
-                                Title:
-                                <input
-                                    className='book-inputs'
-                                    type='text'
-                                    placeholder='Book Title'
-                                    value={title}
-                                    maxLength='400'
-                                    onChange={(e) => setTitle(e.target.value)}
-                                />
-                            </label>
+                    <label className='add-form-label'>Title:</label>
+                        <input
+                            className='book-inputs'
+                            type='text'
+                            placeholder='Book Title'
+                            value={title}
+                            maxLength='400'
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
 
-                            {errors.title && <p classTitle='add-validators'>{errors.title}</p>}
+                    {errors.title && <p className='add-errors'>{errors.title}</p>}
 
-                            <label className='add-form-elements' >
-                                Author:
-                                <input
-                                    className='book-inputs'
-                                    type='text'
-                                    placeholder='Book Author'
-                                    value={author}
-                                    maxLength='500'
-                                    onChange={(e) => setAuthor(e.target.value)}
-                                />
-                            </label>
+                    <label className='add-form-label'>Author:</label>
+                        <input
+                            className='book-inputs'
+                            type='text'
+                            placeholder='Book Author'
+                            value={author}
+                            maxLength='500'
+                            onChange={(e) => setAuthor(e.target.value)}
+                        />
 
-                            {errors.author && <p className='add-validators'>{errors.author}</p>}
-                            
-                            <label className='add-form-elements' >
-                                Number of Pages:
-                                <input
-                                    className='book-inputs'
-                                    type='number'
-                                    value={pageNum}
-                                    onChange={(e) => setPageNum(e.target.value)}
-                                />
-                            </label>
-
-                            {errors.pageNum && <p className='add-validators'>{errors.pageNum}</p>}
-                            
-                            <label className='add-form-elements' >
-                                Year Published:
-                                <input
-                                    className='book-inputs'
-                                    type='number'
-                                    value={yrPub}
-                                    onChange={(e) => setYrPub(e.target.value)}
-                                />
-                            </label>
-
-                            {errors.yrPub && <p className='add-validators'>{errors.yrPub}</p>}
-
-                            <label className='add-form-elements' >
-                                Genre:
-                                <input
-                                    className='book-inputs'
-                                    type='text'
-                                    placeholder='Book Genre'
-                                    value={genre}
-                                    maxLength='255'
-                                    onChange={(e) => setGenre(e.target.value)}
-                                />
-                            </label>
-
-                            {errors.genre && <p className='add-validators'>{errors.genre}</p>}
-
-                            <label className='add-form-elements' >
-                                Book Cover:
-                                <input
-                                    className='book-inputs'
-                                    type='file'
-                                    accept='.pdf, .png, .jpg, .jpeg, .gif'
-                                    onChange={(e) => setPicture(e.target.files[0])}
-                                />
-                            </label>
-
-                            {errors.picture && <p className='add-validators'>{errors.picture}</p>}
-
-                            <label className='add-form-elements'>
-                                Description:
-                                <textarea
-                                    type="text"
-                                    placeholder="Book description..."
-                                    value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
-                                    rows="10"
-                                    cols="35"
-                                />
-                            </label>
-
-                            {errors.description && <p className='add-validators'>{errors.description}</p>}
-
-                        </section>
-                        <button id='add-book-btn' type="submit">Create Book</button>
-                        {(imageLoading) && <p>Loading...</p>}
+                    {errors.author && <p className='add-errors'>{errors.author}</p>}
+                    
+                    <div className='add-num-input'>
+                    <label className='add-form-label'>Number of Pages:</label>
+                        <input
+                            className='book-inputs'
+                            type='number'
+                            value={pageNum}
+                            onChange={(e) => setPageNum(e.target.value)}
+                            />
                     </div>
-                </form>
-            </div>
+
+                    {errors.pageNum && <p className='add-errors'>{errors.pageNum}</p>}
+                    
+                    <div className='add-num-input'>
+                    <label className='add-form-label'> Year Published:</label>
+                        <input
+                            className='book-inputs'
+                            type='number'
+                            value={yrPub}
+                            onChange={(e) => setYrPub(e.target.value)}
+                        />
+                    </div>
+
+                    {errors.yrPub && <p className='add-errors'>{errors.yrPub}</p>}
+
+                    <label className='add-form-label'>Genre:</label>
+                        <input
+                            className='book-inputs'
+                            type='text'
+                            placeholder='Book Genre'
+                            value={genre}
+                            maxLength='255'
+                            onChange={(e) => setGenre(e.target.value)}
+                        />
+
+                    {errors.genre && <p className='add-errors'>{errors.genre}</p>}
+
+                    <div className='add-num-input'>
+                    <label className='add-form-label'>Book Cover:</label>
+                        <input
+                            className='book-inputs'
+                            type='file'
+                            accept='.pdf, .png, .jpg, .jpeg, .gif'
+                            onChange={(e) => setPicture(e.target.files[0])}
+                        />
+                    </div>
+                    {errors.picture && <p className='add-errors'>{errors.picture}</p>}
+
+                    <label className='add-form-label'>Description:</label>
+                        <textarea
+                            type="text"
+                            placeholder="Book description..."
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            rows="10"
+                            cols="35"
+                        />
+
+                    {errors.description && <p className='add-errors'>{errors.description}</p>}
+
+                </section>
+                <div id="add-book-btn-div">
+                <button id='add-book-btn' type="submit">Create your book!</button>
+                </div>
+                {(imageLoading) && <p>Loading...</p>}
+            </form>
+        </div>
         </div>
     )
 }
