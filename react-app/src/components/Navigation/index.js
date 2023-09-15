@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import SearchBar from './SearchBar';
 import './Navigation.css';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
@@ -23,7 +24,7 @@ function Navigation({ isLoaded }){
 				<NavLink exact to="/" id="noDeco"><i class="fa-solid fa-book-open-reader"></i><span id="logo">The PorchStory</span></NavLink>
 			</li>
 			<li className='searchbar-li'>
-				{/* <BookSearchBar id='searchbar' /> */}
+				<SearchBar id='searchbar' />
 			</li>
 			<li className="all-book-link">
 				<NavLink className='navlink-link' exact to={`/books`}>Browse books</NavLink>

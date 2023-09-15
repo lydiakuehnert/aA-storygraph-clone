@@ -11,6 +11,7 @@ import AllBooks from "./components/AllBooks";
 import OneBook from "./components/OneBook";
 import UserBooks from "./components/UserBooks";
 import AddBook from "./components/AddBook";
+import BookSearch from "./components/BookSearch";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,9 @@ function App() {
             </Route>
             <Route exact path="/books">
               <AllBooks />
+            </Route>
+            <Route path="/books/search">
+              <BookSearch />
             </Route>
             <Route exact path='/books/user'>
               <UserBooks />

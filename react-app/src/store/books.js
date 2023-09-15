@@ -49,9 +49,7 @@ export const getSearchedBooksThunk = (query) => async dispatch => {
     const res = await fetch(`/api/books/search?=${query}`)
 
     if (res.ok) {
-        console.log(res)
         const books = await res.json();
-        console.log(books)
         dispatch(getBooksAction(books))
     }
 }
