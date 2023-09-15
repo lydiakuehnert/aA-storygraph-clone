@@ -1,3 +1,7 @@
+.add-errors {
+    color: red;
+}
+
 #outer-add-book {
     display: flex;
     flex-direction: column;

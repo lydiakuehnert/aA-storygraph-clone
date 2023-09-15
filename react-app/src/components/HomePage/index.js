@@ -21,7 +21,7 @@ export default function HomePage() {
                 </div>
             </div>
             <div className="home-right">
-                <img src="https://www.thestorygraph.com/assets/hero-image-9daf4eae0b6f8e9beb51f83fd4a99631698ca1c8c68ef07a1aae37ef8a477dd1.jpg"></img>
+                <img src="https://www.thestorygraph.com/assets/hero-image-9daf4eae0b6f8e9beb51f83fd4a99631698ca1c8c68ef07a1aae37ef8a477dd1.jpg" alt="homepage books"></img>
                 <NavLink className="home-books" exact to="/books">Browse Books</NavLink>
             </div>
         </div>

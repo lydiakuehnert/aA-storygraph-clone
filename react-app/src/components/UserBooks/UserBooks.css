@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
 
+#user-books-box {
+    margin: 0 auto;
+}
+
 .all-user-books {
     display: flex;
     flex-direction: column;

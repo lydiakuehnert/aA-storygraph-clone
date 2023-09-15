@@ -83,7 +83,7 @@ export default function AddBook() {
                             onChange={(e) => setTitle(e.target.value)}
                         />
 
-                    {errors.title && <p classTitle='add-errors'>{errors.title}</p>}
+                    {errors.title && <p className='add-errors'>{errors.title}</p>}
 
                     <label className='add-form-label'>Author:</label>
                         <input
