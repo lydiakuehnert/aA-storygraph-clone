@@ -4,6 +4,7 @@ from app.models import User, Review, Book, db
 from ..forms import BookForm
 from ..forms import BookEditForm
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
+from sqlalchemy import func
 
 
 books = Blueprint('books', __name__)
@@ -107,3 +108,11 @@ def delete_book(id):
         return {"Success": "successfully deleted"}
     else:
         return "<h1> Error Occurred in Deleting Book<h1>"
+
+
+@books.route('/search')
+def get_searched_books():
+    query = request.args.get('').lower()
+    books = Book.query.filter(func.lower(Book.title).like(f'%{query}%')).all()
+    response = [book.to_dict() for book in books]
+    return response
