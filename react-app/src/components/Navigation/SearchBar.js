@@ -1,5 +1,6 @@
-import { useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import './Navigation.css';
 
 export default function SearchBar() {
     const history = useHistory()
@@ -12,7 +13,7 @@ export default function SearchBar() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form id="search-bar-box" onSubmit={handleSubmit}>
                 <input
                     className="search-input"
                     type='search'
