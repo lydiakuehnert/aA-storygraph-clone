@@ -25,7 +25,7 @@ function Footer({ isLoaded }) {
                     <h4>2023</h4>
                 </div>
                 <div id='personal-details'>
-                    <a href="https://github.com/lydiakuehnert" target='_blank'>
+                        <a href="https://lydiakuehnert.github.io/" target='_blank'>
                         <img alt='Lydia' id="lydia-pic" src="../../lydia-pic.jpg"></img>
                     </a>
                     <div id='footer-link-icons'>
