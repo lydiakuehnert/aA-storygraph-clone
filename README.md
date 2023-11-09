@@ -19,16 +19,16 @@ Live Link: https://theporchstory.onrender.com
 [Feature List](https://github.com/lydiakuehnert/aA-storygraph-clone/wiki/Feature-List) | [Database Schema](https://github.com/lydiakuehnert/aA-storygraph-clone/wiki/Database-Schema) | [User Stories](https://github.com/lydiakuehnert/aA-storygraph-clone/wiki/User-Stories) | [Wireframes](https://github.com/lydiakuehnert/aA-storygraph-clone/wiki/Wireframes)
 
 ## Landing Page
-![landing](https://soundcloudaudiofiles.s3.us-west-1.amazonaws.com/LoudCloud+Screenshots/LoudCloud+Splash+Page.png)
+![landing](https://porchstorybucket.s3.amazonaws.com/PorchStory+Screenshots/Landing+Page.png)
 
 ## Book Browser Page
-![books](https://soundcloudaudiofiles.s3.us-west-1.amazonaws.com/LoudCloud+Screenshots/LoudCloud+User+Home+Page.png)
+![books](https://porchstorybucket.s3.amazonaws.com/PorchStory+Screenshots/Browse+Books+Page.png)
 
 ## Book Page
-![book](https://soundcloudaudiofiles.s3.us-west-1.amazonaws.com/LoudCloud+Screenshots/LoudCloud+Song+Page.png)
+![book](https://porchstorybucket.s3.amazonaws.com/PorchStory+Screenshots/Book+Page.png)
 
 ## Add Page
-![add](https://soundcloudaudiofiles.s3.us-west-1.amazonaws.com/LoudCloud+Screenshots/LoudCloud+Upload+Page.png)
+![add](https://porchstorybucket.s3.amazonaws.com/PorchStory+Screenshots/Add+Book+Page.png)
 
 
 ## Endpoints
@@ -51,21 +51,21 @@ Live Link: https://theporchstory.onrender.com
 | GET /api/books/<int:id>        | This fetch is sent to get one book based on id. Upon success, it returns the an object with that book.                | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'title': STRING,<br>&nbsp;&nbsp;&nbsp;'author': STRING,<br>&nbsp;&nbsp;&nbsp;'pageNum': INT,<br>&nbsp;&nbsp;&nbsp;'yrPublished': INT,<br>&nbsp;&nbsp;&nbsp;'genre': STRING,<br>&nbsp;&nbsp;&nbsp;'description': STRING,<br>&nbsp;&nbsp;&nbsp;'picture': STRING,<br>&nbsp;&nbsp;&nbsp;'user': OBJECT,<br>&nbsp;&nbsp;&nbsp;'tags': ARRAY,<br>&nbsp;&nbsp;&nbsp;'avgRating': INT,<br>}<br>|
 | GET /api/books/search        | This fetch is sent to get books based on a filter. Upon success, it returns an array of book objects.                | [{<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'title': STRING,<br>&nbsp;&nbsp;&nbsp;'author': STRING,<br>&nbsp;&nbsp;&nbsp;'pageNum': INT,<br>&nbsp;&nbsp;&nbsp;'yrPublished': INT,<br>&nbsp;&nbsp;&nbsp;'genre': STRING,<br>&nbsp;&nbsp;&nbsp;'description': STRING,<br>&nbsp;&nbsp;&nbsp;'picture': STRING,<br>&nbsp;&nbsp;&nbsp;'user': OBJECT,<br>&nbsp;&nbsp;&nbsp;'tags': ARRAY,<br>&nbsp;&nbsp;&nbsp;'avgRating': INT,<br>}]<br>|
 
-### Comments
+### Reviews
 | Request                        | Purpose                | Return Value  | 
 | :----------------------------- | :--------------------: | :------------------------------ |
-| GET /api/comments/<int:songId>        | This fetch is sent to get all the comments associated with a particular song. Upon success, it returns an array of comment objects.                 | [{<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'comment': STRING,<br>&nbsp;&nbsp;&nbsp;'createdAt': DATE,<br>&nbsp;&nbsp;&nbsp;'user': OBJECT,<br>&nbsp;&nbsp;&nbsp;'song': OBJECT<br>}]<br>|
-| POST /api/comments/<int:songId>/new        | This fetch is sent to add a new item to the comment table. Upon success, it returns that new comment.                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'comment': STRING,<br>&nbsp;&nbsp;&nbsp;'createdAt': DATE,<br>&nbsp;&nbsp;&nbsp;'user': OBJECT,<br>&nbsp;&nbsp;&nbsp;'song': OBJECT<br>}<br>|
-| PUT /api/comments/edit/<int:id>       | This fetch is sent to update a comment. Upon success, it returns an object representing that comment with the updated information.                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'comment': STRING,<br>&nbsp;&nbsp;&nbsp;'createdAt': DATE,<br>&nbsp;&nbsp;&nbsp;'user': OBJECT,<br>&nbsp;&nbsp;&nbsp;'song': OBJECT<br>}<br>|
-| DELETE /api/comments/<int:id>        | This fetch is sent to delete a comment. Upon success, it returns an object of success with the string "successfully deleted".                | {"Success": "successfully deleted"}<br>|
+| GET /api/reviews/<int:bookId>        | This fetch is sent to get all the reviews associated with a particular book. Upon success, it returns an array of review objects.                 | [{<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'review': STRING,<br>&nbsp;&nbsp;&nbsp; 'stars': INT,<br>&nbsp;&nbsp;&nbsp;'date': DATE,<br>&nbsp;&nbsp;&nbsp;'user': OBJECT,<br>&nbsp;&nbsp;&nbsp;'book': OBJECT<br>}]<br>|
+| POST /api/reviews/<int:bookId>/new        | This fetch is sent to add a new item to the review table. Upon success, it returns that new review.                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'review': STRING,<br>&nbsp;&nbsp;&nbsp; 'stars': INT,<br>&nbsp;&nbsp;&nbsp;'date': DATE,<br>&nbsp;&nbsp;&nbsp;'user': OBJECT,<br>&nbsp;&nbsp;&nbsp;'book': OBJECT<br>}<br>|
+| PUT /api/reviews/edit/<int:id>       | This fetch is sent to update a review. Upon success, it returns an object representing that review with the updated information.                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'review': STRING,<br>&nbsp;&nbsp;&nbsp; 'stars': INT,<br>&nbsp;&nbsp;&nbsp;'date': DATE,<br>&nbsp;&nbsp;&nbsp;'user': OBJECT,<br>&nbsp;&nbsp;&nbsp;'book': OBJECT<br>}<br>|
+| DELETE /api/reviews/<int:id>        | This fetch is sent to delete a review. Upon success, it returns an object of success with the string "successfully deleted".                | {"Success": "successfully deleted"}<br>|
 
 
-### Likes
+<!-- ### Likes
 | Request                        | Purpose                | Return Value  | 
 | :----------------------------- | :--------------------: | :------------------------------ |
 | GET /api/likes        | This fetch is sent to get all the liked songs of a particular user. Upon success, it returns an array of songs objects.                 | [{<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'name': STRING,<br>&nbsp;&nbsp;&nbsp;'image': STRING,<br>&nbsp;&nbsp;&nbsp;'audio': STRING,<br>&nbsp;&nbsp;&nbsp;'user': OBJECT,<br>&nbsp;&nbsp;&nbsp;'likes': INT,<br>}]<br>|
 | POST /api/likes/<int:songId>        | This fetch is sent to add a user_id and song_id into the likes join table. Upon success, it returns that user.                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>&nbsp;&nbsp;&nbsp;'firstname': STRING,<br>&nbsp;&nbsp;&nbsp;'lastname': STRING,<br>&nbsp;&nbsp;&nbsp;'image': STRING<br>}<br>|
-| DELETE /api/likes/<int:songId>        | This fetch is sent to delete a like from the joing table. Upon success, it returns that current user.                | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>&nbsp;&nbsp;&nbsp;'firstname': STRING,<br>&nbsp;&nbsp;&nbsp;'lastname': STRING,<br>&nbsp;&nbsp;&nbsp;'image': STRING<br>}<br>|
+| DELETE /api/likes/<int:songId>        | This fetch is sent to delete a like from the joing table. Upon success, it returns that current user.                | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>&nbsp;&nbsp;&nbsp;'firstname': STRING,<br>&nbsp;&nbsp;&nbsp;'lastname': STRING,<br>&nbsp;&nbsp;&nbsp;'image': STRING<br>}<br>| -->
 
 ## Feature List
 1. Books
