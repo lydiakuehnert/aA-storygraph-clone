@@ -73,6 +73,7 @@ export default function OneBook() {
                         buttonClass="review-open-button"
                         modalProps={{ hAlign: "right", className: "modal-create-review" }}
                         modalComponent={<ReviewPost book={book} /> } /> : <></>}
+                    {user && <button>to read</button>}
                 </div>
             </div>
             <div id="review-headline-box">

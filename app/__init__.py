@@ -9,6 +9,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.book_routes import books
 from .api.review_routes import reviews
+from .api.read_routes import readalready_bp
 from .seeds import seed_commands
 from .config import Config
 
@@ -32,6 +33,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(books, url_prefix='/api/books')
 app.register_blueprint(reviews, url_prefix='/api/reviews')
+app.register_blueprint(readalready_bp, url_prefix='/api/read')
 db.init_app(app)
 Migrate(app, db)
 
