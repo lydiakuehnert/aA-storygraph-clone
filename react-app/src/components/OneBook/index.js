@@ -6,12 +6,18 @@ import { getReviewsThunk } from "../../store/reviews";
 import OpenModalButton from "../OpenModalButton";
 import ReviewPost from "../ReviewPost";
 import BookReviews from "../BookReviews";
+import ReadBook from "../ReadBook";
+import ReadBookNot from "../ReadBookNot";
 import "./OneBook.css"
 
 
 export default function OneBook() {
     const { bookId } = useParams();
     const [hideDes, setHideDes] = useState(true)
+    const [read, setRead] = useState(false)
+    const changeRead = () => {
+        setRead(!read)
+    }
 
     const dispatch = useDispatch();
 
@@ -28,6 +34,15 @@ export default function OneBook() {
     useEffect(() => {
         dispatch(getBookThunk(bookId))
     }, [dispatch])
+
+    useEffect(() => {
+        if (user) {
+            const findRead = user.books_read.find(readBook => {
+                return Number(readBook.id) === Number(bookId)
+            })
+            setRead(Boolean(findRead))
+        }
+    }, [user])
 
     const changeDes = () => {
         if (hideDes) setHideDes(false)
@@ -73,7 +88,9 @@ export default function OneBook() {
                         buttonClass="review-open-button"
                         modalProps={{ hAlign: "right", className: "modal-create-review" }}
                         modalComponent={<ReviewPost book={book} /> } /> : <></>}
-                    {user && <button>to read</button>}
+                    {user && <div className="button-read-div">
+                        {read ? <ReadBookNot changeRead={changeRead} /> : <ReadBook changeRead={changeRead} />}
+                    </div>}
                 </div>
             </div>
             <div id="review-headline-box">
