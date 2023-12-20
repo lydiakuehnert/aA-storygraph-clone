@@ -26,7 +26,7 @@ def create_read(bookId):
 @login_required
 def delete_read(bookId):
     curr_user = User.query.get(current_user.id)
-    db.session.execute(delete(readalready).where((readalready.c.user_id == curr_user.id) & (readalready.c.song_id == bookId)))
+    db.session.execute(delete(readalready).where((readalready.c.user_id == curr_user.id) & (readalready.c.book_id == bookId)))
     db.session.commit()
     new_user = curr_user.to_dict()
     return new_user
