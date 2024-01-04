@@ -115,6 +115,7 @@ export default function BookEdit({ bookId }) {
                         <input
                             className='num-edit-input'
                             type='number'
+                            min='0'
                             value={pageNum}
                             onChange={(e) => setPageNum(e.target.value)}
                         />
@@ -126,6 +127,7 @@ export default function BookEdit({ bookId }) {
                         <input
                             className='num-edit-input'
                             type='number'
+                            min='0'
                             value={yrPub}
                             onChange={(e) => setYrPub(e.target.value)}
                         />
