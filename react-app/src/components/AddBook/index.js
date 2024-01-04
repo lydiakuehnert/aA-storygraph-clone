@@ -102,6 +102,7 @@ export default function AddBook() {
                         <input
                             className='book-inputs'
                             type='number'
+                            min='0'
                             value={pageNum}
                             onChange={(e) => setPageNum(e.target.value)}
                             />
@@ -114,6 +115,7 @@ export default function AddBook() {
                         <input
                             className='book-inputs'
                             type='number'
+                            min='0'
                             value={yrPub}
                             onChange={(e) => setYrPub(e.target.value)}
                         />
