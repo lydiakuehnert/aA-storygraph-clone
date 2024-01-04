@@ -11,7 +11,7 @@ export default function ReadBook({ changeRead }) {
         changeRead()
     }
     return (
-        <button onClick={handleClick}>Done Reading</button>
+        <button onClick={handleClick}><i class="fa-solid fa-check"></i> Done Reading</button>
         // <button onClick={handleClick}
         //     title="Like"
         //     class="fa-solid fa-heart" />

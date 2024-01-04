@@ -82,7 +82,8 @@ export default function OneBook() {
                     </div>}
                 </div>
                 <div id="review-add-btn-div">
-                    {user && (user.id !== book.user.id) ? <OpenModalButton
+                    {/* {user && (user.id !== book.user.id) && read ? <OpenModalButton */}
+                    {user && read ? <OpenModalButton
                         buttonText={<i className="fa-solid fa-star"></i>}
                         buttonText2="&nbsp;&nbsp;Add review"
                         buttonClass="review-open-button"
