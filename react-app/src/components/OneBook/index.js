@@ -6,12 +6,18 @@ import { getReviewsThunk } from "../../store/reviews";
 import OpenModalButton from "../OpenModalButton";
 import ReviewPost from "../ReviewPost";
 import BookReviews from "../BookReviews";
+import ReadBook from "../ReadBook";
+import ReadBookNot from "../ReadBookNot";
 import "./OneBook.css"
 
 
 export default function OneBook() {
     const { bookId } = useParams();
     const [hideDes, setHideDes] = useState(true)
+    const [read, setRead] = useState(false)
+    const changeRead = () => {
+        setRead(!read)
+    }
 
     const dispatch = useDispatch();
 
@@ -28,6 +34,15 @@ export default function OneBook() {
     useEffect(() => {
         dispatch(getBookThunk(bookId))
     }, [dispatch])
+
+    useEffect(() => {
+        if (user) {
+            const findRead = user.books_read.find(readBook => {
+                return Number(readBook.id) === Number(bookId)
+            })
+            setRead(Boolean(findRead))
+        }
+    }, [user])
 
     const changeDes = () => {
         if (hideDes) setHideDes(false)
@@ -67,12 +82,16 @@ export default function OneBook() {
                     </div>}
                 </div>
                 <div id="review-add-btn-div">
-                    {user && (user.id !== book.user.id) ? <OpenModalButton
+                    {/* {user && (user.id !== book.user.id) && read ? <OpenModalButton */}
+                    {user && read ? <OpenModalButton
                         buttonText={<i className="fa-solid fa-star"></i>}
                         buttonText2="&nbsp;&nbsp;Add review"
                         buttonClass="review-open-button"
                         modalProps={{ hAlign: "right", className: "modal-create-review" }}
                         modalComponent={<ReviewPost book={book} /> } /> : <></>}
+                    {user && <div className="button-read-div">
+                        {read ? <ReadBookNot changeRead={changeRead} /> : <ReadBook changeRead={changeRead} />}
+                    </div>}
                 </div>
             </div>
             <div id="review-headline-box">

@@ -46,9 +46,9 @@ class User(db.Model, UserMixin):
             "lastname": self.lastname,
             "email": self.email,
             "profile_pic": self.profile_pic,
-            "books": [book.to_dict() for book in self.books],
+            "books": [book.to_dict_no() for book in self.books],
             "reviews": [review.to_dict() for review in self.reviews],
-            "books_read": [book.to_dict() for book in self.user_read]
+            "books_read": [book.to_dict_no() for book in self.user_read]
         }
     
     def to_dict_no(self):

@@ -1,6 +1,8 @@
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
+const CREATE_READ = "songs/READ_BOOK";
+const DELETE_READ = "songs/UNREAD_BOOK";
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -10,6 +12,20 @@ const setUser = (user) => ({
 const removeUser = () => ({
 	type: REMOVE_USER,
 });
+
+const createReadAction = (user) => {
+	return {
+		type: CREATE_READ,
+		user
+	}
+}
+
+const deleteReadAction = (user) => {
+	return {
+		type: DELETE_READ,
+		user
+	}
+}
 
 const initialState = { user: null };
 
@@ -89,12 +105,59 @@ export const signUp = (payload) => async (dispatch) => {
 	}
 };
 
+export const createReadThunk = (bookId) => async dispatch => {
+	try {
+		const res = await fetch(`/api/read/${bookId}`, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' }
+		})
+		if (res.ok) {
+			const user = await res.json()
+			dispatch(createReadAction(user))
+			return user
+		} else {
+			const data = await res.json()
+			return data
+		}
+	} catch (e) {
+		console.error("an error has occured:", e)
+		return null
+	}
+}
+
+export const deleteReadThunk = (bookId) => async dispatch => {
+	try {
+		const res = await fetch(`/api/read/${bookId}`, {
+			method: 'DELETE',
+			headers: { 'Content-Type': 'application/json' }
+		})
+
+		if (res.ok) {
+			const user = await res.json()
+			dispatch(deleteReadAction(user))
+			return user
+		}
+	} catch (e) {
+		const data = await e.json()
+		return data
+	}
+}
+
 export default function reducer(state = initialState, action) {
+	let newState;
 	switch (action.type) {
 		case SET_USER:
 			return { user: action.payload };
 		case REMOVE_USER:
 			return { user: null };
+		case CREATE_READ:
+			newState = { ...state, user: {} }
+			newState.user = action.user
+			return newState;
+		case DELETE_READ:
+			newState = { ...state, user: {} }
+			newState.user = action.user
+			return newState;
 		default:
 			return state;
 	}
