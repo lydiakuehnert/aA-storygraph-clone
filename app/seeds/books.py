@@ -125,10 +125,21 @@ def seed_books(all_users):
         user_id=3,
         # book_read=sample(all_users, randint(0, len(all_users)))
         )
+    book12 = Book(
+        title='The Road to Character',
+        author='David Brooks',
+        page_num='320',
+        yr_published='2015',
+        genre='nonfiction',
+        description="With the wisdom, humor, curiosity, and sharp insights that have brought millions of readers to his New York Times column and his previous bestsellers, David Brooks has consistently illuminated our daily lives in surprising and original ways. In The Social Animal, he explored the neuroscience of human connection and how we can flourish together. Now, in The Road to Character, he focuses on the deeper values that should inform our lives. Looking to some of the world's greatest thinkers and inspiring leaders, Brooks explores how, through internal struggle and a sense of their own limitations, they have built a strong inner character. Labor activist Frances Perkins understood the need to suppress parts of herself so that she could be an instrument in a larger cause. Dwight Eisenhower organized his life not around impulsive self-expression but considered self-restraint. Dorothy Day, a devout Catholic convert and champion of the poor, learned as a young woman the vocabulary of simplicity and surrender. Civil rights pioneers A. Philip Randolph and Bayard Rustin learned reticence and the logic of self-discipline, the need to distrust oneself even while waging a noble crusade. Blending psychology, politics, spirituality, and confessional, The Road to Character provides an opportunity for us to rethink our priorities, and strive to build rich inner lives marked by humility and moral depth.",
+        picture='https://porchstorybucket.s3.amazonaws.com/morebooks/book12.jpeg',
+        user_id=1,
+        # book_read=sample(all_users, randint(0, len(all_users)))
+        )
     
 
 
-    all_books = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11]
+    all_books = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12]
     add_books = [db.session.add(book) for book in all_books]
     db.session.commit()
     return all_books
