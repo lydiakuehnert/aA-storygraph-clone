@@ -136,10 +136,21 @@ def seed_books(all_users):
         user_id=1,
         # book_read=sample(all_users, randint(0, len(all_users)))
         )
+    book13 = Book(
+        title='Evicted: Poverty and Profit in the American City',
+        author='Matthew Desmond',
+        page_num='432',
+        yr_published='2016',
+        genre='nonfiction',
+        description="In Evicted, Princeton sociologist and MacArthur 'Genius' Matthew Desmond follows eight families in Milwaukee as they each struggle to keep a roof over their heads. Hailed as 'wrenching and revelatory' (The Nation), 'vivid and unsettling' (New York Review of Books), Evicted transforms our understanding of poverty and economic exploitation while providing fresh ideas for solving one of twenty-first-century America's most devastating problems. Its unforgettable scenes of hope and loss remind us of the centrality of home, without which nothing else is possible.",
+        picture='https://porchstorybucket.s3.amazonaws.com/morebooks/book13.jpeg',
+        user_id=2,
+        # book_read=sample(all_users, randint(0, len(all_users)))
+        )
     
 
 
-    all_books = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12]
+    all_books = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13]
     add_books = [db.session.add(book) for book in all_books]
     db.session.commit()
     return all_books
