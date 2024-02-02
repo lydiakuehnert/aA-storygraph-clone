@@ -158,10 +158,21 @@ def seed_books(all_users):
         user_id=3,
         # book_read=sample(all_users, randint(0, len(all_users)))
         )
+    book15 = Book(
+        title='The Count of Monte Cristo',
+        author='Alexandre Dumas',
+        page_num='1276',
+        yr_published='1844',
+        genre='fiction',
+        description="Thrown in prison for a crime he has not committed, Edmond Dantes is confined to the grim fortress of If. There he learns of a great hoard of treasure hidden on the Isle of Monte Cristo and he becomes determined not only to escape, but also to unearth the treasure and use it to plot the destruction of the three men responsible for his incarceration. Dumas' epic tale of suffering and retribution, inspired by a real-life case of wrongful imprisonment, was a huge popular success when it was first serialized in the 1840s. Robin Buss's lively English translation is complete and unabridged, and remains faithful to the style of Dumas's original. This edition includes an introduction, explanatory notes and suggestions for further reading.",
+        picture='https://porchstorybucket.s3.amazonaws.com/morebooks/book15.jpeg',
+        user_id=1,
+        # book_read=sample(all_users, randint(0, len(all_users)))
+        )
     
 
 
-    all_books = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14]
+    all_books = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14, book15]
     add_books = [db.session.add(book) for book in all_books]
     db.session.commit()
     return all_books
