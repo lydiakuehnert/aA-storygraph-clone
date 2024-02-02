@@ -114,10 +114,65 @@ def seed_books(all_users):
         user_id=1,
         # book_read=sample(all_users, randint(0, len(all_users)))
         )
+    book11 = Book(
+        title='The Myth of Normal: Trauma, Illness & Healing in a Toxic Culture',
+        author='Gabor Maté',
+        page_num='562',
+        yr_published='2022',
+        genre='psychology',
+        description="In his new masterpiece, renowned physician, addiction expert and author Gabor Maté dissects the underlying causes of this malaise - physical and emotional, and connects the dots between our personal suffering and the pressures of modern-day living. Over four decades of clinical experience, Dr Maté has found that the common definition of 'normal' is false: virtually all disease is actually a natural reflection of life in an abnormal culture, as we grow further and further apart from our true selves. But he also shows us the pathway to reconnection and healing. Filled with stories of people in the grip of illness or in the triumphant wake of recovery, this life-affirming book shows how true health is possible - if we are willing to embrace authenticity above social expectations. The Myth of Normal is Gabor Maté's most ambitious, compassionate and urgent book yet. Mental illness is on an unstoppable rise. Some 45% of Europeans suffer high blood pressure, and nearly 70% of Americans take at least one prescription drug. Illness and trauma are defining how we live.",
+        picture='https://porchstorybucket.s3.amazonaws.com/morebooks/book11.jpeg',
+        user_id=3,
+        # book_read=sample(all_users, randint(0, len(all_users)))
+        )
+    book12 = Book(
+        title='The Road to Character',
+        author='David Brooks',
+        page_num='320',
+        yr_published='2015',
+        genre='nonfiction',
+        description="With the wisdom, humor, curiosity, and sharp insights that have brought millions of readers to his New York Times column and his previous bestsellers, David Brooks has consistently illuminated our daily lives in surprising and original ways. In The Social Animal, he explored the neuroscience of human connection and how we can flourish together. Now, in The Road to Character, he focuses on the deeper values that should inform our lives. Looking to some of the world's greatest thinkers and inspiring leaders, Brooks explores how, through internal struggle and a sense of their own limitations, they have built a strong inner character. Labor activist Frances Perkins understood the need to suppress parts of herself so that she could be an instrument in a larger cause. Dwight Eisenhower organized his life not around impulsive self-expression but considered self-restraint. Dorothy Day, a devout Catholic convert and champion of the poor, learned as a young woman the vocabulary of simplicity and surrender. Civil rights pioneers A. Philip Randolph and Bayard Rustin learned reticence and the logic of self-discipline, the need to distrust oneself even while waging a noble crusade. Blending psychology, politics, spirituality, and confessional, The Road to Character provides an opportunity for us to rethink our priorities, and strive to build rich inner lives marked by humility and moral depth.",
+        picture='https://porchstorybucket.s3.amazonaws.com/morebooks/book12.jpeg',
+        user_id=1,
+        # book_read=sample(all_users, randint(0, len(all_users)))
+        )
+    book13 = Book(
+        title='Evicted: Poverty and Profit in the American City',
+        author='Matthew Desmond',
+        page_num='432',
+        yr_published='2016',
+        genre='nonfiction',
+        description="In Evicted, Princeton sociologist and MacArthur 'Genius' Matthew Desmond follows eight families in Milwaukee as they each struggle to keep a roof over their heads. Hailed as 'wrenching and revelatory' (The Nation), 'vivid and unsettling' (New York Review of Books), Evicted transforms our understanding of poverty and economic exploitation while providing fresh ideas for solving one of twenty-first-century America's most devastating problems. Its unforgettable scenes of hope and loss remind us of the centrality of home, without which nothing else is possible.",
+        picture='https://porchstorybucket.s3.amazonaws.com/morebooks/book13.jpeg',
+        user_id=2,
+        # book_read=sample(all_users, randint(0, len(all_users)))
+        )
+    book14 = Book(
+        title='The Way of Kings',
+        author='Brandon Sanderson',
+        page_num='1007',
+        yr_published='2010',
+        genre='fiction',
+        description="Roshar is a world of stone and storms. Uncanny tempests of incredible power sweep across the rocky terrain so frequently that they have shaped ecology and civilization alike. Animals hide in shells, trees pull in branches, and grass retracts into the soilless ground. Cities are built only where the topography offers shelter. It has been centuries since the fall of the ten consecrated orders known as the Knights Radiant, but their Shardblades and Shardplate remain: mystical swords and suits of armor that transform ordinary men into near-invincible warriors. Men trade kingdoms for Shardblades. Wars were fought for them, and won by them. One such war rages on a ruined landscape called the Shattered Plains. There, Kaladin, who traded his medical apprenticeship for a spear to protect his little brother, has been reduced to slavery. In a war that makes no sense, where ten armies fight separately against a single foe, he struggles to save his men and to fathom the leaders who consider them expendable. Brightlord Dalinar Kholin commands one of those other armies. Like his brother, the late king, he is fascinated by an ancient text called The Way of Kings. Troubled by over-powering visions of ancient times and the Knights Radiant, he has begun to doubt his own sanity. Across the ocean, an untried young woman named Shallan seeks to train under an eminent scholar and notorious heretic, Dalinar's niece, Jasnah. Though she genuinely loves learning, Shallan's motives are less than pure. As she plans a daring theft, her research for Jasnah hints at secrets of the Knights Radiant and the true cause of the war. The result of over ten years of planning, writing, and world-building, The Way of Kings is but the opening movement of the Stormlight Archive, a bold masterpiece in the making.",
+        picture='https://porchstorybucket.s3.amazonaws.com/morebooks/book14.jpeg',
+        user_id=3,
+        # book_read=sample(all_users, randint(0, len(all_users)))
+        )
+    book15 = Book(
+        title='The Count of Monte Cristo',
+        author='Alexandre Dumas',
+        page_num='1276',
+        yr_published='1844',
+        genre='fiction',
+        description="Thrown in prison for a crime he has not committed, Edmond Dantes is confined to the grim fortress of If. There he learns of a great hoard of treasure hidden on the Isle of Monte Cristo and he becomes determined not only to escape, but also to unearth the treasure and use it to plot the destruction of the three men responsible for his incarceration. Dumas' epic tale of suffering and retribution, inspired by a real-life case of wrongful imprisonment, was a huge popular success when it was first serialized in the 1840s. Robin Buss's lively English translation is complete and unabridged, and remains faithful to the style of Dumas's original. This edition includes an introduction, explanatory notes and suggestions for further reading.",
+        picture='https://porchstorybucket.s3.amazonaws.com/morebooks/book15.jpeg',
+        user_id=1,
+        # book_read=sample(all_users, randint(0, len(all_users)))
+        )
     
 
 
-    all_books = [book1, book2, book3, book4, book5, book6, book7, book8, book9]
+    all_books = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11, book12, book13, book14, book15]
     add_books = [db.session.add(book) for book in all_books]
     db.session.commit()
     return all_books
