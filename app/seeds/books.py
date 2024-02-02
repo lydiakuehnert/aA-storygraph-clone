@@ -114,10 +114,21 @@ def seed_books(all_users):
         user_id=1,
         # book_read=sample(all_users, randint(0, len(all_users)))
         )
+    book11 = Book(
+        title='The Myth of Normal: Trauma, Illness & Healing in a Toxic Culture',
+        author='Gabor Maté',
+        page_num='562',
+        yr_published='2022',
+        genre='psychology',
+        description="In his new masterpiece, renowned physician, addiction expert and author Gabor Maté dissects the underlying causes of this malaise - physical and emotional, and connects the dots between our personal suffering and the pressures of modern-day living. Over four decades of clinical experience, Dr Maté has found that the common definition of 'normal' is false: virtually all disease is actually a natural reflection of life in an abnormal culture, as we grow further and further apart from our true selves. But he also shows us the pathway to reconnection and healing. Filled with stories of people in the grip of illness or in the triumphant wake of recovery, this life-affirming book shows how true health is possible - if we are willing to embrace authenticity above social expectations. The Myth of Normal is Gabor Maté's most ambitious, compassionate and urgent book yet. Mental illness is on an unstoppable rise. Some 45% of Europeans suffer high blood pressure, and nearly 70% of Americans take at least one prescription drug. Illness and trauma are defining how we live.",
+        picture='https://porchstorybucket.s3.amazonaws.com/morebooks/book11.jpeg',
+        user_id=3,
+        # book_read=sample(all_users, randint(0, len(all_users)))
+        )
     
 
 
-    all_books = [book1, book2, book3, book4, book5, book6, book7, book8, book9]
+    all_books = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10, book11]
     add_books = [db.session.add(book) for book in all_books]
     db.session.commit()
     return all_books
